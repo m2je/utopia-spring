@@ -18,7 +18,7 @@ public class TestUser {
 	@Test
 	public void test(){
 		try{
-			restTemplate.getForEntity(url, responseType)delete();
+//			restTemplate.getForEntity(url, responseType)delete();
 			}catch(Exception e){
 				e.printStackTrace();
 			}
