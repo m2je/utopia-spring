@@ -22,7 +22,7 @@ public class CmSubsystem extends AbstractCmSubsystem implements
 		java.io.Serializable {
 
 	// Constructors
-
+	public static final int ABBRIVIATION_LENGHT=2;
 	/**
 	 * 
 	 */

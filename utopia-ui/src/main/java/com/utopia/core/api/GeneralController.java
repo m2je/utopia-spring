@@ -15,14 +15,16 @@ import com.utopia.core.usecase.UsecaseService;
 
 @Controller
 @RequestMapping("/api")
-public class GeneralController {
+public class GeneralController extends AbstractAPIContreoller{
 	
 	@Resource
 	private UsecaseService usecaseService;
 	@RequestMapping(value="/{usecase}",method=RequestMethod.GET)
 	@ResponseBody
-	public  List<CoUsecase>  usecases(@PathVariable String usecase){
+	public  CoUsecase  usecases(@PathVariable CoUsecase usecase){
 		
-		return usecaseService.findAllUsecases();
+		return null;
 	}
+	
+	
 }

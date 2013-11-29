@@ -9,12 +9,21 @@ import org.springframework.stereotype.Component;
 import com.utopia.core.security.model.CoUsecase;
 import com.utopia.core.service.AbstractUtopiaService;
 @Component
-public class UtopiaServiceImpl extends AbstractUtopiaService implements UsecaseService{
+public class UsecaseServiceImpl extends AbstractUtopiaService implements UsecaseService{
 
 	@Resource
 	private UsecaseDAO DAO;
 	
 	public List<CoUsecase> findAllUsecases(){
 		return DAO.findActiveUsecases();
+	}
+
+	@Override
+	public CoUsecase findById(Long id) {
+		return DAO.findOne(id);
+	}
+	
+	public CoUsecase findUsecase(String systemName,String subSystemName,String usecaseName){
+		return DAO.findActiveUsecase(systemName, subSystemName, usecaseName);
 	}
 }

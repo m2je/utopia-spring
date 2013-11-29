@@ -19,5 +19,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/utopia-common"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/utopia-core"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/utopia-security"/>
+	<classpathentry kind="var" path="M2_REPO/org/springframework/data/spring-data-jpa/1.4.1.RELEASE/spring-data-jpa-1.4.1.RELEASE.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

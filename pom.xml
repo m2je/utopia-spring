@@ -13,8 +13,11 @@
 	    <utopia-version>1.0-SNAPSHOT</utopia-version>
 	    <hibernate-version>4.2.4.Final</hibernate-version>
 	    <jackson-2-version>2.2.3</jackson-2-version>
+	    <org.springframework.security.oauth2.version>1.0.5.RELEASE</org.springframework.security.oauth2.version>
+	    <org.springframework.security.version>3.1.4.RELEASE</org.springframework.security.version>
 	</properties>  
  
+	
 <repositories>
     <repository>
         <id>spring-milestones</id>
@@ -24,6 +27,16 @@
             <enabled>false</enabled>
         </snapshots>
     </repository>
+      <repository>
+            <id>spring-milestone</id>
+            <name>Spring Maven MILESTONE Repository</name>
+            <url>http://maven.springframework.org/milestone</url>
+        </repository>
+        <repository>
+            <id>spring-snnapshot</id>
+            <name>Spring Maven SNAPSHOT Repository</name>
+            <url>http://maven.springframework.org/snapshot</url>
+        </repository>
     <repository>
       <id>codelds</id>
       <url>https://code.lds.org/nexus/content/groups/main-repo</url>
@@ -57,6 +70,18 @@
         <version>${spring-core-version}</version>
     </dependency>
     
+     <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${spring-core-version}</version>
+            <scope>test</scope>
+     </dependency>
+    <dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+			<version>3.2.5.RELEASE</version>
+	</dependency>
+            
    <dependency>
 	   <groupId>org.hibernate</groupId>
 	   <artifactId>hibernate-core</artifactId>
@@ -163,8 +188,61 @@
 	<artifactId>spring-data-jpa</artifactId>
 	<version>1.4.1.RELEASE</version>
 </dependency>
+
+<dependency>
+    <groupId>org.springframework.security.oauth</groupId>
+    <artifactId>spring-security-oauth2</artifactId>
+    <version>1.0.5.RELEASE</version>
+</dependency>
+
+<dependency>
+	<groupId>commons-lang</groupId>
+	<artifactId>commons-lang</artifactId>
+	<version>2.6</version>
+</dependency>
+
+<dependency>
+         <groupId>org.springframework.security</groupId>
+         <artifactId>spring-security-core</artifactId>
+         <version>${org.springframework.security.version}</version>
+ </dependency>
+ <dependency>
+     <groupId>org.springframework.security</groupId>
+     <artifactId>spring-security-config</artifactId>
+     <version>${org.springframework.security.version}</version>
+ </dependency>
+ <dependency>
+     <groupId>org.springframework.security</groupId>
+     <artifactId>spring-security-web</artifactId>
+     <version>${org.springframework.security.version}</version>
+ </dependency>
+        	            
+<dependency>
+       <groupId>org.springframework.security.oauth</groupId>
+       <artifactId>spring-security-oauth2</artifactId>
+       <version>${org.springframework.security.oauth2.version}</version>
+</dependency>
+      
+<dependency>
+	<groupId>org.apache.httpcomponents</groupId>
+	<artifactId>httpclient</artifactId>
+	<version>4.3.1</version>
+	<scope>test</scope>
+</dependency>
+<dependency>
+     <groupId>commons-dbcp</groupId>
+     <artifactId>commons-dbcp</artifactId>
+     <version>1.0</version>
+     <scope>test</scope>
+</dependency>
+
+<dependency>
+	<groupId>commons-pool</groupId>
+	<artifactId>commons-pool</artifactId>
+	<version>1.6</version>
+</dependency>
             
-  </dependencies>
+</dependencies>
 
   
 

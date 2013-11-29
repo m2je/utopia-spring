@@ -3,6 +3,7 @@ package com.utopia.core.security.model;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.TableGenerator;
+import javax.persistence.Transient;
 
 /**
  * CoUsecase entity.
@@ -13,6 +14,7 @@ import javax.persistence.TableGenerator;
 @Table(name = "CO_USECASE",  uniqueConstraints = {})
 @TableGenerator(name = "CoUsecaseSequenceGenerator", 
 		table = "CO_SEQUENCE", pkColumnName = "TABLENAME", valueColumnName = "CURRENTID", pkColumnValue = "CO_USECASE")
+
 public class CoUsecase extends AbstractCoUsecase implements
 		java.io.Serializable {
 
@@ -33,8 +35,11 @@ public class CoUsecase extends AbstractCoUsecase implements
 	public CoUsecase(Long coUsecaseId, String uscsRemoteClass) {
 		super(coUsecaseId, uscsRemoteClass);
 	}
-
 	
+	@Transient
+	public String getFullName(){
+		return getCmSubsystem().getCmSystem().getAbbreviation()+getCmSubsystem().getAbbreviation()+getName();
+	}
 	
 	
 }

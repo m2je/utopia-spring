@@ -29,12 +29,13 @@ public abstract class AbstractCoApplication extends SoftDeletePersistentSupport 
 	private Long coApplicationId;
 	private String name;
 	private String secretKey;
-	private long tokenValidity;
+	private int tokenValidity;
 	
 	private Set<CoUserAppToken> coUserAppTokens = new HashSet<CoUserAppToken>(0);
 	private Set<CoAppUscsAccss> coAppUscsAccsses = new HashSet<CoAppUscsAccss>(
 			0);
-
+	private String scope;
+	private String redirectURL;
 	// Constructors
 
 	/** default constructor */
@@ -92,13 +93,33 @@ public abstract class AbstractCoApplication extends SoftDeletePersistentSupport 
 	}
 
 	@Column(name="TOKEN_VALIDITY")
-	public long getTokenValidity() {
+	public int getTokenValidity() {
 		return tokenValidity;
 	}
 
 
-	public void setTokenValidity(long tokenValidity) {
+	public void setTokenValidity(int tokenValidity) {
 		this.tokenValidity = tokenValidity;
+	}
+
+	@Column
+	public String getScope() {
+		return scope;
+	}
+
+
+	public void setScope(String scope) {
+		this.scope = scope;
+	}
+
+	@Column(name="redirect_URL")
+	public String getRedirectURL() {
+		return redirectURL;
+	}
+
+
+	public void setRedirectURL(String redirectURL) {
+		this.redirectURL = redirectURL;
 	}
 
 	

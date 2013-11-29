@@ -20,7 +20,7 @@ import com.utopia.core.model.annotations.LookupConfiguration;
 @TableGenerator(name = "UserSequenceGenerator", 
 		table = "CO_SEQUENCE", pkColumnName = "TABLENAME", valueColumnName = "CURRENTID", pkColumnValue = "CO_USER")
 @LookupConfiguration(displayColumns={"username","cmBpartner.name","cmBpartner.secoundName"},displayItemSeperator="-")
-@JsonIgnoreProperties({"passowrd","createdby","updatedby"})
+@JsonIgnoreProperties({"password","createdby","updatedby"})
 public class CoUser extends AbstractCoUser implements java.io.Serializable {
 
 	// Constructors
