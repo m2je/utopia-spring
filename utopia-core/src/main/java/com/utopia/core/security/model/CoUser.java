@@ -32,6 +32,7 @@ public class CoUser extends AbstractCoUser implements java.io.Serializable {
 
 	/** default constructor */
 	public CoUser() {
+		
 	}
 
 

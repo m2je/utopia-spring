@@ -1,6 +1,5 @@
 package com.utopia.security.oauth;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
@@ -9,7 +8,7 @@ import java.util.Map;
 import java.util.Set;
 
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.oauth2.provider.ClientDetails;
 
 import com.utopia.core.security.model.CoApplication;
@@ -28,9 +27,7 @@ public class Client implements ClientDetails{
 	}
 	public Client(CoApplication application,Map<String,Object>additionalInformations){
 		this.application=application;
-		this.authorities=new ArrayList<GrantedAuthority>();
-		this.authorities.add(new SimpleGrantedAuthority("USER_ROLE"));
-		this.authorities.add(new SimpleGrantedAuthority("client_credentials"));
+		this.authorities=AuthorityUtils.createAuthorityList("USER_ROLE","client_credentials");
 		this.resourceIds=new HashSet<String>();
 	}
 	@Override
