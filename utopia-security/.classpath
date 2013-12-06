@@ -21,5 +21,6 @@
 	<classpathentry kind="var" path="M2_REPO/org/springframework/data/spring-data-jpa/1.4.1.RELEASE/spring-data-jpa-1.4.1.RELEASE.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/springframework/spring-beans/4.0.0.M3/spring-beans-4.0.0.M3.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/springframework/spring-context/4.0.0.M3/spring-context-4.0.0.M3.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/springframework/spring-aop/4.0.0.M3/spring-aop-4.0.0.M3.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
