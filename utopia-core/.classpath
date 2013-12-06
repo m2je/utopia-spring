@@ -21,15 +21,15 @@
 	</classpathentry>
 	<classpathentry kind="var" path="M2_REPO/org/springframework/data/spring-data-jpa/1.4.1.RELEASE/spring-data-jpa-1.4.1.RELEASE.jar" sourcepath="/M2_REPO/org/springframework/data/spring-data-jpa/1.4.1.RELEASE/spring-data-jpa-1.4.1.RELEASE-sources.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/springframework/data/spring-data-commons/1.6.1.RELEASE/spring-data-commons-1.6.1.RELEASE.jar"/>
-	<classpathentry kind="var" path="M2_REPO/org/springframework/spring-context/4.0.0.M3/spring-context-4.0.0.M3.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/springframework/spring-context/4.0.0.M3/spring-context-4.0.0.M3.jar" sourcepath="/M2_REPO/org/springframework/spring-context/4.0.0.M3/spring-context-4.0.0.M3-sources.jar"/>
 	<classpathentry kind="var" path="M2_REPO/com/fasterxml/jackson/core/jackson-annotations/2.2.3/jackson-annotations-2.2.3.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/springframework/spring-orm/4.0.0.M3/spring-orm-4.0.0.M3.jar" sourcepath="/M2_REPO/org/springframework/spring-orm/4.0.0.M3/spring-orm-4.0.0.M3-sources.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
-	<classpathentry kind="var" path="M2_REPO/org/springframework/spring-test/4.0.0.M3/spring-test-4.0.0.M3.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/springframework/spring-test/4.0.0.M3/spring-test-4.0.0.M3.jar" sourcepath="/M2_REPO/org/springframework/spring-test/4.0.0.M3/spring-test-4.0.0.M3-sources.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/springframework/spring-web/4.0.0.M3/spring-web-4.0.0.M3.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/springframework/spring-core/4.0.0.M3/spring-core-4.0.0.M3.jar"/>
 	<classpathentry kind="var" path="M2_REPO/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar"/>
-	<classpathentry kind="var" path="M2_REPO/org/springframework/spring-beans/4.0.0.M3/spring-beans-4.0.0.M3.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/springframework/spring-beans/4.0.0.M3/spring-beans-4.0.0.M3.jar" sourcepath="/M2_REPO/org/springframework/spring-beans/4.0.0.M3/spring-beans-4.0.0.M3-sources.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/springframework/spring-aop/4.0.0.M3/spring-aop-4.0.0.M3.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/springframework/security/spring-security-core/3.1.4.RELEASE/spring-security-core-3.1.4.RELEASE.jar" sourcepath="/M2_REPO/org/springframework/security/spring-security-core/3.1.4.RELEASE/spring-security-core-3.1.4.RELEASE-sources.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/springframework/spring-expression/4.0.0.M3/spring-expression-4.0.0.M3.jar"/>
@@ -57,5 +57,7 @@
 	<classpathentry kind="var" path="M2_REPO/com/fasterxml/classmate/0.8.0/classmate-0.8.0.jar"/>
 	<classpathentry kind="var" path="M2_REPO/com/fasterxml/jackson/core/jackson-core/2.2.3/jackson-core-2.2.3.jar"/>
 	<classpathentry kind="var" path="M2_REPO/com/fasterxml/jackson/core/jackson-databind/2.2.3/jackson-databind-2.2.3.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/jasypt/jasypt/1.9.1/jasypt-1.9.1.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/jasypt/jasypt-hibernate4/1.9.1/jasypt-hibernate4-1.9.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

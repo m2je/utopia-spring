@@ -16,6 +16,9 @@ import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlTransient;
 
 import org.apache.commons.beanutils.MethodUtils;
+import org.hibernate.annotations.Parameter;
+import org.hibernate.annotations.TypeDef;
+import org.jasypt.hibernate4.type.EncryptedStringType;
 
 import com.utopia.core.lookup.DetailPersistentValueInfo;
 import com.utopia.core.lookup.LookupInfo;
@@ -24,6 +27,13 @@ import com.utopia.core.util.logic.AnnotationUtil;
 
 @MappedSuperclass
 @EntityListeners({AttachmentListener.class,CustomPropertyListener.class})
+@TypeDef(
+	    name="encryptedString", 
+	    typeClass=EncryptedStringType.class, 
+	    parameters= {
+	        @Parameter(name="encryptorRegisteredName", value="UtopiaHibernateStringEncryptor")
+	    }
+	)
 public abstract class  AbstractBasicPersistent implements UtopiaBasicPersistent{
 
 private static final Logger logger;

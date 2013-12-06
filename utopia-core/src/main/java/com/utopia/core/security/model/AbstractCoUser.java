@@ -17,6 +17,8 @@ import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 
+import org.hibernate.annotations.Type;
+
 import com.utopia.common.basicinformation.bpartner.model.CmBpartner;
 import com.utopia.core.model.AbstractOrganizationData;
 
@@ -40,6 +42,7 @@ public abstract class AbstractCoUser extends AbstractOrganizationData implements
 	private String password;
 	private byte[] userImage;
 	private CmBpartner cmBpartner;
+	private CoPortal coPortal;
 	private Set<CoUsrUscsActnAccs> coUsrUscsActnAccses = new HashSet<CoUsrUscsActnAccs>(
 			0);
 	private Set<CoUserRoles> coUserRoleses = new HashSet<CoUserRoles>(0);
@@ -71,7 +74,7 @@ public abstract class AbstractCoUser extends AbstractOrganizationData implements
 	public void setUsername(String username) {
 		this.username = username;
 	}
-
+	@Type(type="encryptedString")
 	@Column(name = "PASSWORD", unique = false, nullable = false, insertable = true, updatable = true, length = 200)
 	public String getPassword() {
 		return this.password;
@@ -121,4 +124,15 @@ public abstract class AbstractCoUser extends AbstractOrganizationData implements
 		this.coUserRoleses = coUserRoleses;
 	}
 
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="CO_PORTAL_ID")
+	public CoPortal getCoPortal() {
+		return coPortal;
+	}
+
+	public void setCoPortal(CoPortal coPortal) {
+		this.coPortal = coPortal;
+	}
+	
+	
 }

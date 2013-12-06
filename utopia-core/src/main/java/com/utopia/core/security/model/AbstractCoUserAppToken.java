@@ -14,13 +14,12 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import com.utopia.core.model.AbstractBasicPersistent;
-import com.utopia.core.model.SoftDeletePersistent;
 
 /**
  * AbstractCoUserAppToken 
  */
 @MappedSuperclass
-public abstract class AbstractCoUserAppToken extends AbstractBasicPersistent implements java.io.Serializable,SoftDeletePersistent {
+public abstract class AbstractCoUserAppToken extends AbstractBasicPersistent implements java.io.Serializable {
 
 	// Fields
 
@@ -35,7 +34,6 @@ public abstract class AbstractCoUserAppToken extends AbstractBasicPersistent imp
 	private Date validTo;
 	private Date created;
 	private Date updated;
-	private boolean deleted;
 	private String refreshToken;
 	// Constructors
 
@@ -114,17 +112,6 @@ public abstract class AbstractCoUserAppToken extends AbstractBasicPersistent imp
 
 	public void setUpdated(Date updated) {
 		this.updated = updated;
-	}
-
-	
-
-	public boolean isDeleted() {
-		return deleted;
-	}
-
-
-	public void setDeleted(boolean deleted) {
-		this.deleted = deleted;
 	}
 
 

@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
@@ -37,7 +38,7 @@ public abstract class AbstractUtopiaPersistent extends SoftDeletePersistentSuppo
 		this.created = created;
 	}
 //************************************************************************************************
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name = "CREATEDBY", unique = false, nullable = false, insertable = true, updatable = true)
 	public CoUser getCreatedby() {
 		return this.createdby;
@@ -57,7 +58,7 @@ public abstract class AbstractUtopiaPersistent extends SoftDeletePersistentSuppo
 		this.updated = updated;
 	}
 //************************************************************************************************
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name = "UPDATEDBY", unique = false, nullable = false, insertable = true, updatable = true)
 	public CoUser getUpdatedby() {
 		return this.updatedby;

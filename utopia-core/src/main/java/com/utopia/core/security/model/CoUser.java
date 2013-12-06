@@ -16,7 +16,7 @@ import com.utopia.core.model.annotations.LookupConfiguration;
 @Entity
 @Table(name = "CO_USER", uniqueConstraints = {
 		@UniqueConstraint(columnNames = { "CM_BPARTNER_ID" }),
-		@UniqueConstraint(columnNames = { "USERNAME" }) })
+		@UniqueConstraint(columnNames = { "USERNAME","CM_BPARTNER_ID" }) })
 @TableGenerator(name = "UserSequenceGenerator", 
 		table = "CO_SEQUENCE", pkColumnName = "TABLENAME", valueColumnName = "CURRENTID", pkColumnValue = "CO_USER")
 @LookupConfiguration(displayColumns={"username","cmBpartner.name","cmBpartner.secoundName"},displayItemSeperator="-")
