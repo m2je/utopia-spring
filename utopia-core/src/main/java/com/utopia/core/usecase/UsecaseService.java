@@ -12,4 +12,6 @@ public interface UsecaseService extends UtopiaService {
 	public CoUsecase findById(Long id);
 	
 	public CoUsecase findUsecase(String systemName,String subSystemName,String usecaseName);
+	
+	public List<UseCase> getUseCasesConfiguration();
 }

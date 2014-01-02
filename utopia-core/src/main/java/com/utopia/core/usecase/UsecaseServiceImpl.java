@@ -26,4 +26,12 @@ public class UsecaseServiceImpl extends AbstractUtopiaService implements Usecase
 	public CoUsecase findUsecase(String systemName,String subSystemName,String usecaseName){
 		return DAO.findActiveUsecase(systemName, subSystemName, usecaseName);
 	}
+
+	@Override
+	public List<UseCase> getUseCasesConfiguration() {
+		
+		return null;
+	}
+	
+	
 }

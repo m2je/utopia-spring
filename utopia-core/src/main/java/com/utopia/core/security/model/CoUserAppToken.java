@@ -14,7 +14,7 @@ import javax.persistence.TableGenerator;
 @Entity
 @Table(name = "CO_USER_APP_TOKEN",  uniqueConstraints = {})
 @NamedQueries({@NamedQuery(name= CoUserAppToken.FIND_APPLICATION_BY_TOKEN,query="SELECT CoUserAppToken FROM CoUserAppToken CoUserAppToken WHERE CoUserAppToken.token=:token "
-		+ "AND CoUserAppToken.validTo>CURRENT_TIMESTAMP AND  CoUserAppToken.deleted=FALSE")})
+		+ "AND CoUserAppToken.validTo>CURRENT_TIMESTAMP ")})
 @TableGenerator(name = "UserApplicationSequenceGenerator", 
 table = "CO_SEQUENCE", pkColumnName = "TABLENAME", valueColumnName = "CURRENTID", pkColumnValue = "CO_USER_APP_TOKEN")
 public class CoUserAppToken extends AbstractCoUserAppToken implements

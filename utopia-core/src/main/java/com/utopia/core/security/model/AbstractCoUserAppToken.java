@@ -3,23 +3,18 @@ package com.utopia.core.security.model;
 import java.util.Date;
 
 import javax.persistence.Column;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
-import com.utopia.core.model.AbstractBasicPersistent;
 
 /**
  * AbstractCoUserAppToken 
  */
 @MappedSuperclass
-public abstract class AbstractCoUserAppToken extends AbstractBasicPersistent implements java.io.Serializable {
+public abstract class AbstractCoUserAppToken extends AbstractCoAppToken implements java.io.Serializable {
 
 	// Fields
 
@@ -28,15 +23,11 @@ public abstract class AbstractCoUserAppToken extends AbstractBasicPersistent imp
 	 */
 	private static final long serialVersionUID = 7898517976814203390L;
 	private Long coUserAppTokenId;
-	private CoUser coUser;
-	private CoApplication coApplication;
+	
 	private String token;
 	private Date validTo;
 	private Date created;
 	private Date updated;
-	private String refreshToken;
-	// Constructors
-
 	/** default constructor */
 	public AbstractCoUserAppToken() {
 	}
@@ -53,26 +44,6 @@ public abstract class AbstractCoUserAppToken extends AbstractBasicPersistent imp
 
 	public void setCoUserAppTokenId(Long coUserAppTokenId) {
 		this.coUserAppTokenId = coUserAppTokenId;
-	}
-
-	@ManyToOne(cascade = {}, fetch = FetchType.LAZY)
-	@JoinColumn(name = "CO_USER_ID", unique = false, nullable = false, insertable = true, updatable = true)
-	public CoUser getCoUser() {
-		return this.coUser;
-	}
-
-	public void setCoUser(CoUser coUser) {
-		this.coUser = coUser;
-	}
-
-	@ManyToOne(cascade = {}, fetch = FetchType.LAZY)
-	@JoinColumn(name = "CO_APPLICATION_ID", unique = false, nullable = false, insertable = true, updatable = true)
-	public CoApplication getCoApplication() {
-		return this.coApplication;
-	}
-
-	public void setCoApplication(CoApplication coApplication) {
-		this.coApplication = coApplication;
 	}
 
 	@Column(name = "TOKEN", unique = false, nullable = false, insertable = true, updatable = true, length = 3000)
@@ -114,19 +85,6 @@ public abstract class AbstractCoUserAppToken extends AbstractBasicPersistent imp
 		this.updated = updated;
 	}
 
-
-	@Column(name="REFRESH_TOKEN")
-	public String getRefreshToken() {
-		return refreshToken;
-	}
-
-
-	public void setRefreshToken(String refreshToken) {
-		this.refreshToken = refreshToken;
-	}
-
-
-	
 
 	
 

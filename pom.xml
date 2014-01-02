@@ -9,7 +9,7 @@
   
   <url>http://maven.apache.org</url>
 	<properties>
-	    <spring-core-version>4.0.0.M3</spring-core-version>
+	    <spring-core-version>4.0.0.RELEASE</spring-core-version>
 	    <utopia-version>1.0-SNAPSHOT</utopia-version>
 	    <hibernate-version>4.2.4.Final</hibernate-version>
 	    <jackson-2-version>2.2.3</jackson-2-version>
@@ -79,7 +79,7 @@
     <dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-aspects</artifactId>
-			<version>3.2.5.RELEASE</version>
+			<version>${spring-core-version}</version>
 	</dependency>
             
    <dependency>
@@ -186,7 +186,7 @@
 <dependency>
 	<groupId>org.springframework.data</groupId>
 	<artifactId>spring-data-jpa</artifactId>
-	<version>1.4.1.RELEASE</version>
+	<version>1.4.3.RELEASE</version>
 </dependency>
 
 <dependency>
