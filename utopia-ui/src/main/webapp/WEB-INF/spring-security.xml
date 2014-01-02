@@ -82,14 +82,16 @@
         <constructor-arg ref="clientDetails"/>
     </bean>
 
-    <bean id="tokenStore" class="org.springframework.security.oauth2.provider.token.InMemoryTokenStore"/>
+ 
+    <bean id="tokenStore" class="com.utopia.security.oauth.UtopiaTokenStore"/>
 
     <bean id="tokenServices" class="org.springframework.security.oauth2.provider.token.DefaultTokenServices">
         <property name="tokenStore" ref="tokenStore"/>
         <property name="supportRefreshToken" value="true"/>
         <property name="clientDetailsService" ref="clientDetails"/>
     </bean>
-
+ 
+ 
     <bean id="userApprovalHandler" class="org.springframework.security.oauth2.provider.approval.TokenServicesUserApprovalHandler">
         <property name="tokenServices" ref="tokenServices"/>
     </bean>

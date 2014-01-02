@@ -27,7 +27,7 @@ public class Client implements ClientDetails{
 	}
 	public Client(CoApplication application,Map<String,Object>additionalInformations){
 		this.application=application;
-		this.authorities=AuthorityUtils.createAuthorityList("USER_ROLE","client_credentials","password");
+		this.authorities=AuthorityUtils.createAuthorityList("USER_ROLE","client_credentials","password","refresh_token");
 		this.resourceIds=new HashSet<String>();
 	}
 	@Override
