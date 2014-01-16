@@ -19,6 +19,7 @@ public class TestUser extends AbstractUtopiaTestCase{
 			UserCollectionResult result=restTemplate.getForEntity(serverURL+"/users", UserCollectionResult.class).getBody();
 			}catch(Exception e){
 				e.printStackTrace();
+				throw e;
 			}
 	}
 }

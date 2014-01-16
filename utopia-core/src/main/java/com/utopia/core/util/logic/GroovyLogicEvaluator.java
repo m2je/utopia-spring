@@ -5,11 +5,11 @@ import groovy.lang.GroovyShell;
 
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import javax.annotation.Resource;
 import javax.inject.Singleton;
+
+import org.apache.log4j.Logger;
 
 import com.utopia.core.util.ContextUtil;
 
@@ -36,9 +36,7 @@ public class GroovyLogicEvaluator {
 				return ((Boolean)result).booleanValue();
 			}
 		} catch (Exception e) {
-//			if(logger.isLoggable(Level.FINEST)){
-				logger.log(Level.WARNING,"fail to evaluate groovy script ",e);
-//			}
+				logger.warn("fail to evaluate groovy script ",e);
 			e.printStackTrace();	
 		}
 		return false;

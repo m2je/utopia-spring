@@ -12,10 +12,10 @@ import com.utopia.core.security.model.CoUsecase;
 public interface UsecaseDAO extends UtopiaDAO,JpaRepository<CoUsecase, Long> {
 
 	@Query("SELECT CoUsecase FROM CoUsecase CoUsecase WHERE CoUsecase.deleted=FALSE")
-	public List<CoUsecase> findActiveUsecases();
+	public List<CoUsecase> findUsecases();
 	
 	@Query("SELECT CoUsecase FROM CoUsecase CoUsecase WHERE CoUsecase.deleted=FALSE AND CoUsecase.name=:usecaseName"
 			+" AND (CoUsecase.cmSubsystem.name=:subSystemName OR CoUsecase.cmSubsystem.abbreviation=:subSystemName) AND CoUsecase.cmSubsystem.deleted=FALSE  "
 			+" AND (CoUsecase.cmSubsystem.cmSystem.name=:systemName OR CoUsecase.cmSubsystem.abbreviation=:systemName )AND CoUsecase.cmSubsystem.cmSystem.deleted=FALSE")
-	public CoUsecase findActiveUsecase(@Param("systemName") String systemName,@Param("subSystemName") String subSystemName,@Param("usecaseName") String usecaseName);
+	public CoUsecase findUsecase(@Param("systemName") String systemName,@Param("subSystemName") String subSystemName,@Param("usecaseName") String usecaseName);
 }

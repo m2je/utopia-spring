@@ -2,7 +2,8 @@ package com.utopia.core.usecase;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
+
+import org.apache.log4j.Logger;
 
 public class UseCase {
 

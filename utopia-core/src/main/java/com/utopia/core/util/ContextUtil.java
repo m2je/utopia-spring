@@ -15,13 +15,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import javax.annotation.Resource;
 import javax.inject.Singleton;
 import javax.security.auth.Subject;
 import javax.servlet.http.HttpSession;
+
+import org.apache.log4j.Logger;
 
 import com.utopia.core.lookup.LookupInfo;
 import com.utopia.core.model.UtopiaPersistent;
@@ -154,7 +154,7 @@ public class ContextUtil {
 				}
 				
 			} catch (Exception e) {
-				logger.log(Level.WARNING,"fail to load value from method "+methodName, e);
+				logger.warn("fail to load value from method "+methodName, e);
 			} 
 		}
 		}

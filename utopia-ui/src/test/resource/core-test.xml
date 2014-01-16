@@ -19,8 +19,9 @@
         <context:exclude-filter type="regex" expression=".*Controller.*"/>
     </context:component-scan>
     <context:annotation-config/>
-    <context:property-placeholder location="classpath:/core-test.properties"/>
-	
+    
+    <context:property-placeholder  location="classpath:/core-test.properties"/>	
+    
     <bean id="coreResource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="${jdbc.driverClassName}"/>
         <property name="url" value="${jdbc.url}"/>
@@ -28,7 +29,7 @@
         <property name="password" value="${jdbc.password}"/>
     </bean>
      
-      
+
    <tx:annotation-driven transaction-manager="transactionManager" mode="aspectj" proxy-target-class="true"/>
 
     <bean id="transactionManager"
@@ -85,5 +86,16 @@
 	        <value>${encryptionSALT}</value>
 	    </property>
   </bean>
-  
+  <!-- 
+  <bean id="UtopiaProperties" class="com.utopia.core.util.UtopiaPropertiesFactoryBean">
+    	<property name="entityManagerFactory" ref="entityManagerFactory"/>
+    	<property name="systemNames"  >
+			<list>
+				<value>Core</value>
+				<value>Common</value>
+			</list>
+    	</property>
+	</bean>
+	<context:property-placeholder system-properties-mode="FALLBACK" properties-ref="UtopiaProperties" />
+   -->
  </beans>

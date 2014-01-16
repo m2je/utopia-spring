@@ -1,24 +1,20 @@
 package com.utopia.core.lookup;
 
 import java.io.Serializable;
-import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
+import org.apache.log4j.Logger;
 
 import com.utopia.core.metadata.EntityPair;
 import com.utopia.core.model.UtopiaBasicPersistent;
-import com.utopia.core.util.logic.AnnotationUtil;
 
 
 public class LookupConfigurationModel implements Serializable {
 	private static final Logger logger;
 	
 	static {
-		logger = Logger.getLogger(LookupConfigurationModel.class.getName());
+		logger = Logger.getLogger(LookupConfigurationModel.class);
 	}
 	/**
 	 * 
@@ -31,7 +27,6 @@ public class LookupConfigurationModel implements Serializable {
 	private Class<? extends UtopiaBasicPersistent>ownPersitentClass;
 	private Class<? extends UtopiaBasicPersistent>primaryKeyPersistent;
 	private List<Condition> conditions=new ArrayList<Condition>();
-	private static HashMap<String, Object>defaultContext=new HashMap<String, Object>();
 	private String descriptionColumn;
 	private String []orderby;
 	public LookupConfigurationModel(Class<? extends UtopiaBasicPersistent> ownPersitentClass){
@@ -140,85 +135,15 @@ public class LookupConfigurationModel implements Serializable {
 			Class<? extends UtopiaBasicPersistent> ownPersitentClass) {
 		this.ownPersitentClass = ownPersitentClass;
 	} 
-//******************************************************************************	
-	public String getJoinclause(){
-		List<Class<?>>joinedItems=new ArrayList<Class<?>>();
-		joinedItems.add(ownPersitentClass);
-		StringBuffer result=new StringBuffer();
-		return join(result,joinedItems,joinedItems.size()).toString();
-	}
-//******************************************************************************	
-	/**
-	 * 
-	 * @param result
-	 * @param joinedItems
-	 * @param oldSize
-	 * @return
-	 */
-	private StringBuffer join(StringBuffer result,List<Class<?>>joinedItems,int oldSize){
-		for(JoinItem item: this.joinItems){
-			if(!joinedItems.contains(item.getJointTopersistentClass())&&
-				!joinedItems.contains(item.getPersistentClass())	){
-				Class<?>clazz=item.getPersistentClass()==null?
-						this.getOwnPersitentClass():item.getPersistentClass();
-				String propertyName=findPersistentAttributeInClass(clazz , item.getPersistentClass());
-				if(propertyName==null||propertyName.trim().length()==0){
-						propertyName=findPersistentAttributeInClass(item.getPersistentClass(),clazz );
-						boolean hasJoinCondition=item.getJoinCondition()!=null&&item.getJoinCondition().trim().length()>0;
-						if(propertyName!=null||hasJoinCondition){
-							result.append(" , ").append(clazz.getSimpleName()).
-							append(" ").append(clazz.getSimpleName());	
-							String condition=hasJoinCondition?item.getJoinCondition():
-								clazz.getSimpleName()+"."+propertyName+"="+item.getPersistentClass().getSimpleName()+"."+propertyName;
-							addCondition(condition, defaultContext);
-							joinedItems.add(item.getPersistentClass());
-						}
-						else{
-							logger.log(Level.WARNING,"fail to find join column for class -->"+clazz.getName() +" in class -->"+
-								item.getPersistentClass().getName());
-						}
-					continue;
-				}else{
-					result.append(" join ").append(item.getJointTopersistentClass().getSimpleName()).append(".")
-					.append(propertyName).append(" ").append(item.getPersistentClass().getSimpleName() );	
-					joinedItems.add(item.getPersistentClass());
-				}
-			}
-		}
-		if(joinedItems.size()==oldSize){
-			if(this.joinItems!=null&&this.joinItems.size()>oldSize){
-				logger.log(Level.WARNING,"not all join column join to lookup");	
-			}
-			return result;
-		}
-		return join(result,joinedItems,joinedItems.size());
-	}
 //******************************************************************************
-	/**
-	 * 
-	 * @param sourceClass
-	 * @param destination
-	 * @return
-	 */	
-	private String findPersistentAttributeInClass(Class<?> sourceClass,Class<? >destination){
-		Method []methods = sourceClass.getMethods();
-		for(Method method:methods){
-			Class<?>clazz= method.getReturnType();
-			if(clazz.equals(destination)){
-				return AnnotationUtil.getPropertyName(method.getName());
-			}
-		}
-		return null;
-	}
-//******************************************************************************	
 	/**
 	 * 
 	 * @param condition
 	 * @param context
 	 */
-	public void addCondition(String condition,Map<String,Object> context) {
+	public void addCondition(String condition) {
 		if(condition==null||condition.trim().length()==0)return ;
-		addCondition(new Condition(condition,context));
+		addCondition(new Condition(condition));
 	}
 //******************************************************************************
 	/**
@@ -237,14 +162,6 @@ public class LookupConfigurationModel implements Serializable {
 	public void removeAllConditions(){
 		if(conditions!=null){
 			conditions.clear();
-		}
-	}
-//******************************************************************************
-	public void setParameterValue(String parameterName,Object parameterValue){
-		if(conditions!=null){
-			for(Condition cond:conditions){
-				cond.setParameterValue(parameterName, parameterValue);
-			}
 		}
 	}
 //******************************************************************************	

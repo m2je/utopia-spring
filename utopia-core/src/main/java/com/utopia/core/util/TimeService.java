@@ -3,13 +3,13 @@ package com.utopia.core.util;
 import java.sql.Timestamp;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -18,7 +18,8 @@ public class TimeService {
 	private Long timeDiff;
     private Long timeDiffCacheStartTime;
     
-    private long timeDiffCacheTimeOut=1*60*60;
+    @Value(value = "${DB.time.sync.interval:3600}")
+    private long timeDiffCacheTimeOut;
     private static Logger logger = Logger.getLogger(TimeService.class.getSimpleName());
     private static DatabseType DBType;
     @PersistenceContext
@@ -58,19 +59,14 @@ public class TimeService {
 					DBType=type;
 					break; 
 				} catch (Exception e) {
-					if(logger.isLoggable(Level.FINE)){
-						logger.log(Level.FINE,"",e);
-					}
-					
+						logger.warn(e);
 				}
     		}
     	}else{
     		try {
 				result=readDBTime(DBType.timeQuery);
 			} catch (Exception e) {
-				if(logger.isLoggable(Level.FINE)){
-					logger.log(Level.FINE,"",e);
-				}
+					logger.warn(e);
 			}
     		
     	}
@@ -90,8 +86,8 @@ public class TimeService {
         }
 
         long systemTime = System.currentTimeMillis();
-        if (logger.isLoggable(Level.FINEST)) {
-            logger.log(Level.FINEST,"systemTime is " + systemTime +
+        if (logger.isDebugEnabled()) {
+            logger.debug("systemTime is " + systemTime +
                     " timeDiffCacheStartTime is " + timeDiffCacheStartTime +
                     " systemTime - timeDiffCacheStartTime is " + (systemTime - timeDiffCacheStartTime) +
                     " timeDiffCacheTimeOut is " + timeDiffCacheTimeOut);

@@ -6,12 +6,11 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.apache.commons.beanutils.MethodUtils;
+import org.apache.log4j.Logger;
 
 /**
  * <p>Title: </p>
@@ -134,7 +133,7 @@ private static final Logger logger;
 
     		}
 		} catch (Exception e) {
-			logger.log(Level.WARNING,"fial to get property--->"+propertyName+" form Object "+value);
+			logger.warn("fial to get property--->"+propertyName+" form Object "+value);
 		}
     	return "";
     }
@@ -208,7 +207,7 @@ private static final Logger logger;
 			return Enum.valueOf((Class<? extends Enum>)clazz, parameter);
 			}
 		} catch (Exception e) {
-			logger.log(Level.WARNING, "",e);
+			logger.warn(e);
 			
 		}
 		return null;
@@ -223,7 +222,7 @@ private static final Logger logger;
 				return clazz;
 			}
 		} catch (ClassNotFoundException e) {
-			logger.log(Level.WARNING,"fail to find class -->"+className );
+			logger.warn("fail to find class -->"+className );
 			int lastDotIndex=className.lastIndexOf(".");
 			if(lastDotIndex>0){
 			 String clazz=className.substring(0, lastDotIndex);

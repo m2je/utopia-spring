@@ -1,14 +1,13 @@
 package com.utopia.core.security;
 
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import javax.annotation.Resource;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import org.apache.log4j.Logger;
 import org.jasypt.encryption.pbe.PBEStringEncryptor;
 import org.jasypt.hibernate4.encryptor.HibernatePBEStringEncryptor;
 import org.junit.Test;
@@ -44,8 +43,7 @@ public class EncryptUserPasswords {
 					updateQuery.setParameter(1, encryptor.encrypt((String)user[2])).setParameter(2, user[0]) ;
 					updateQuery.executeUpdate();
 				} catch (Exception e) {
-						logger.log(Level.INFO,"fail to decrypt password ==> "+(String)user[2],e);
-					
+						logger.warn("fail to decrypt password ==> "+(String)user[2],e);
 				}
 			}
 		} catch (Exception e) {

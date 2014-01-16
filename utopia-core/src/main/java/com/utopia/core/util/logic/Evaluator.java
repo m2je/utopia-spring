@@ -2,9 +2,10 @@ package com.utopia.core.util.logic;
 
 import java.math.BigDecimal;
 import java.util.Map;
-import java.util.logging.Logger;
 
 import javax.inject.Singleton;
+
+import org.apache.log4j.Logger;
 
 import com.utopia.core.util.logic.LogicParser.MapParameterHandler;
 

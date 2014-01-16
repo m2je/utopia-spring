@@ -1,15 +1,16 @@
 package com.utopia.core.model;
 
-import java.util.logging.Logger;
 
 import javax.persistence.PostRemove;
+
+import org.apache.log4j.Logger;
 
 public class CustomPropertyListener {
 
 private static final Logger logger;
 	
 	static {
-		logger = Logger.getLogger(CustomPropertyListener.class.getName());
+		logger = Logger.getLogger(CustomPropertyListener.class);
 	}
 	@PostRemove
 	public void cascadeCustomPropertyDelete(UtopiaBasicPersistent p) {

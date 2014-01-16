@@ -1,15 +1,16 @@
 package com.utopia.core.model;
 
-import java.util.logging.Logger;
 
 import javax.persistence.PostRemove;
+
+import org.apache.log4j.Logger;
 
 
 public class AttachmentListener {
 	private static final Logger logger;
 	
 	static {
-		logger = Logger.getLogger(AttachmentListener.class.getName());
+		logger = Logger.getLogger(AttachmentListener.class);
 	}
 	
 	@PostRemove

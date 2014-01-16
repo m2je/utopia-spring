@@ -15,7 +15,7 @@ public class UsecaseServiceImpl extends AbstractUtopiaService implements Usecase
 	private UsecaseDAO DAO;
 	
 	public List<CoUsecase> findAllUsecases(){
-		return DAO.findActiveUsecases();
+		return DAO.findUsecases();
 	}
 
 	@Override
@@ -24,12 +24,18 @@ public class UsecaseServiceImpl extends AbstractUtopiaService implements Usecase
 	}
 	
 	public CoUsecase findUsecase(String systemName,String subSystemName,String usecaseName){
-		return DAO.findActiveUsecase(systemName, subSystemName, usecaseName);
+		return DAO.findUsecase(systemName, subSystemName, usecaseName);
 	}
 
 	@Override
 	public List<UseCase> getUseCasesConfiguration() {
 		
+		return null;
+	}
+
+	@Override
+	public CoUsecase findUsecase(String usecaseName) {
+		// TODO Auto-generated method stub
 		return null;
 	}
 	

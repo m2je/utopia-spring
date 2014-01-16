@@ -2,8 +2,8 @@ package com.utopia.core.util.logic;
 
 import java.math.BigDecimal;
 import java.util.StringTokenizer;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
+import org.apache.log4j.Logger;
 
 public class ClassicEvaluator {
 	private static final Logger logger=Logger.getLogger(ClassicEvaluator.class.getName());
@@ -32,7 +32,7 @@ public class ClassicEvaluator {
 		int it = st.countTokens();
 		if (((it / 2) - ((it + 1) / 2)) == 0) //	only uneven arguments
 		{
-			logger.log(Level.WARNING,"evatuateLogic - Logic does not comply with format "
+			logger.warn("evatuateLogic - Logic does not comply with format "
 					+ "'<expression> [<logic> <expression>]' => " + logic);
 			return false;
 		}
@@ -77,7 +77,7 @@ public class ClassicEvaluator {
 		
 		StringTokenizer st = new StringTokenizer(logic.trim(), "!=^><", true);
 		if (st.countTokens() != 3) {
-			logger.log(Level.WARNING,"evaluateLogicTuple - Logic touple does not comply with format "
+			logger.warn("evaluateLogicTuple - Logic touple does not comply with format "
 							+ "'@context@=value' or '@context@!value' => "
 							+ logic);
 			return false;

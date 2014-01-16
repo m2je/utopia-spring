@@ -6,8 +6,6 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import javax.persistence.EntityListeners;
 import javax.persistence.Id;
@@ -16,6 +14,8 @@ import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlTransient;
 
 import org.apache.commons.beanutils.MethodUtils;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import org.hibernate.annotations.Parameter;
 import org.hibernate.annotations.TypeDef;
 import org.jasypt.hibernate4.type.EncryptedStringType;
@@ -39,7 +39,7 @@ public abstract class  AbstractBasicPersistent implements UtopiaBasicPersistent{
 private static final Logger logger;
 	
 	static {
-		logger = Logger.getLogger(AbstractBasicPersistent.class.getName());
+		logger = Logger.getLogger(AbstractBasicPersistent.class);
 	}
 	private static Cache<Class<?>, Method[]>PK_METHOD_CACHE=new Cache<Class<?>, Method[]>();
 	private static final Object[] o=new Object[]{};

@@ -8,8 +8,6 @@ import java.lang.reflect.Type;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import javax.persistence.Column;
 import javax.persistence.Id;
@@ -17,6 +15,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import org.apache.commons.beanutils.MethodUtils;
+import org.apache.log4j.Logger;
 
 import com.utopia.core.util.Cache;
 
@@ -41,7 +40,7 @@ public class AnnotationUtil {
 		 }else if(getterMethodName.startsWith("is")){
 			 index=3;
 		 }else{
-			 logger.log(Level.WARNING,"invalid getter method name"+getterMethodName);
+			 logger.warn("invalid getter method name"+getterMethodName);
 			 return null;
 		 }
 		result =getterMethodName.substring(index);
@@ -132,7 +131,7 @@ public class AnnotationUtil {
 			try {
 				CLASS_Method_KEY_CACHE.put(key, clazz.getMethod(methodName, c));
 			} catch (Exception e) {
-				logger.log(Level.WARNING,"", e);
+				logger.warn("fail to find getter method return type", e);
 				CLASS_Method_KEY_CACHE.put(key,null);
 			}
 		}

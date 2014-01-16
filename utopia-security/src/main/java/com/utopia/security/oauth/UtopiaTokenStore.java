@@ -8,6 +8,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.oauth2.common.DefaultOAuth2AccessToken;
 import org.springframework.security.oauth2.common.DefaultOAuth2RefreshToken;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;
@@ -27,6 +28,9 @@ import com.utopia.core.util.TimeService;
 
 public class UtopiaTokenStore implements TokenStore {
 
+	@Value(value = "${accessToken.validity:21600}")
+    private long accessTokenValidity;
+	
 	@Resource
 	private CoUserAppTokenDAO coUserAppTokenDAO;
 	
@@ -38,6 +42,7 @@ public class UtopiaTokenStore implements TokenStore {
 	
 	@Resource
 	private TimeService timeService;
+	
 	
 //********************************************************************************************************************************************
 	@Override

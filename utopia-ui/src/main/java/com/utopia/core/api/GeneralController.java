@@ -13,7 +13,7 @@ import com.utopia.core.usecase.UsecaseService;
 
 @Controller
 @RequestMapping("/api")
-public class GeneralController extends AbstractAPIContreoller{
+public class GeneralController extends AbstractAPIController{
 	
 	@Resource
 	private UsecaseService usecaseService;
