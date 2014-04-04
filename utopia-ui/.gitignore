@@ -1,2 +1,16 @@
-/build
+/bin
 /target
+*.class
+*.jar
+*.tar
+*.zip
+*.svn
+*.project
+*.classpath
+*.iml
+*.ipr
+*.iws
+/classes
+
+*.settings
+jQueryTest.jsp
