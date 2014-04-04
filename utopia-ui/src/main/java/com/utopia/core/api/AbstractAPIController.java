@@ -11,8 +11,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 
-import com.utopia.common.systems.CmSubsystem;
-import com.utopia.common.systems.CmSystem;
 import com.utopia.core.security.model.CoUsecase;
 import com.utopia.core.security.model.CoUser;
 import com.utopia.core.usecase.UsecaseService;

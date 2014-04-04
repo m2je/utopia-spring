@@ -31,7 +31,7 @@
       
    </bean>
    -->
-   <jpa:repositories base-package="com.utopia"  />
+   <jpa:repositories base-package="com.utopia"  factory-class="com.utopia.core.dao.UtopiaRepositoryFactoryBean" />
     <bean id="pum" class="org.springframework.data.jpa.support.MergingPersistenceUnitManager">
 			<property name="defaultPersistenceUnitName" value="coreResource"/>
 	</bean>

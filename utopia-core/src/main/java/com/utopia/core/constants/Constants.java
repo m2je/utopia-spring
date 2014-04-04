@@ -19,7 +19,7 @@ public class Constants {
 	 * @author salarkia
 	 * person sex male or female 
 	 */
-	public enum Sex {
+	public enum Gender {
 	male,female;
 	}
 	/**

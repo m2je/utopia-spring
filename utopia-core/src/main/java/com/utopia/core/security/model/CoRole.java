@@ -2,7 +2,6 @@ package com.utopia.core.security.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import javax.persistence.TableGenerator;
 import javax.persistence.UniqueConstraint;
 
 /**
@@ -12,8 +11,6 @@ import javax.persistence.UniqueConstraint;
  */
 @Entity
 @Table(name = "CO_ROLE",  uniqueConstraints = { @UniqueConstraint(columnNames = { "NAME" }) })
-@TableGenerator(name = "RoleSequenceGenerator", 
-		table = "CO_SEQUENCE", pkColumnName = "TABLENAME", valueColumnName = "CURRENTID", pkColumnValue = "CO_ROLE")
 public class CoRole extends AbstractCoRole implements java.io.Serializable {
 
 	// Constructors

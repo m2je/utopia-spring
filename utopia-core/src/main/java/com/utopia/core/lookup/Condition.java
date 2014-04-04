@@ -1,12 +1,7 @@
 package com.utopia.core.lookup;
 
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-
-import com.utopia.core.util.logic.LogicParser;
-import com.utopia.core.util.logic.ParameterHandler;
 
 public class Condition implements Serializable {
 	

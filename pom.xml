@@ -16,6 +16,7 @@
 	    <org.springframework.security.oauth2.version>1.0.5.RELEASE</org.springframework.security.oauth2.version>
 	    <org.springframework.security.version>3.1.4.RELEASE</org.springframework.security.version>
 	    <org.jasypt.version>1.9.1</org.jasypt.version>
+	    <QueryDSL>3.3.1</QueryDSL>
 	</properties>  
  
 	
@@ -137,10 +138,11 @@
     </dependency>
     
     <dependency>
-	    <groupId>com.oracle</groupId>
-	    <artifactId>ojdbc6</artifactId>
-	    <version>11.2.0.3</version>
+		<groupId>mysql</groupId>
+		<artifactId>mysql-connector-java</artifactId>
+		<version>5.1.29</version>
 	</dependency>
+
    
     
     <dependency>
@@ -258,11 +260,35 @@
       <artifactId>jasypt-hibernate4</artifactId>
       <version>${org.jasypt.version}</version>
 </dependency>  
-</dependencies>
-
   
-
+<dependency>
+  <groupId>com.mysema.querydsl</groupId>
+  <artifactId>querydsl-apt</artifactId>
+  <version>${QueryDSL}</version>
+  <scope>provided</scope>
+</dependency>  
+    
+<!-- 
+<dependency>
+  <groupId>org.slf4j</groupId>
+  <artifactId>slf4j-log4j12</artifactId>
+  <version>1.5.2</version>
+</dependency>
+ -->
+ 
+ <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.8.1</version>
+      <scope>test</scope>
+ </dependency>
+ 
+ 
+</dependencies>
+          
+  
             
+                 
 <modules>
     <module>utopia-core</module>
 </modules>  

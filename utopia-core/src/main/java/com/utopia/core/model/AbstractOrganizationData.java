@@ -5,7 +5,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
 
-import com.utopia.common.basicinformation.organization.model.CmOrganization;
+import com.utopia.common.model.CmOrganization;
 
 @MappedSuperclass
 public class AbstractOrganizationData extends AbstractUtopiaPersistent implements OrganizationData {

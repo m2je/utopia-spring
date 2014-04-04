@@ -27,4 +27,11 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.wst.common.project.facet.core.nature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>generated</name>
+			<type>2</type>
+			<location>F:/workspaces/utopia-spring/utopia-core/target/generated-sources/java</location>
+		</link>
+	</linkedResources>
 </projectDescription>

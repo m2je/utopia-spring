@@ -1,29 +1,31 @@
 package com.utopia.core.model;
 
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.persistence.Column;
 import javax.persistence.EntityListeners;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.TableGenerator;
 import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlTransient;
 
-import org.apache.commons.beanutils.MethodUtils;
-import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.hibernate.annotations.Parameter;
 import org.hibernate.annotations.TypeDef;
+import org.hibernate.proxy.HibernateProxy;
 import org.jasypt.hibernate4.type.EncryptedStringType;
 
 import com.utopia.core.lookup.DetailPersistentValueInfo;
 import com.utopia.core.lookup.LookupInfo;
-import com.utopia.core.util.Cache;
-import com.utopia.core.util.logic.AnnotationUtil;
 
 @MappedSuperclass
 @EntityListeners({AttachmentListener.class,CustomPropertyListener.class})
@@ -34,6 +36,8 @@ import com.utopia.core.util.logic.AnnotationUtil;
 	        @Parameter(name="encryptorRegisteredName", value="UtopiaHibernateStringEncryptor")
 	    }
 	)
+@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+
 public abstract class  AbstractBasicPersistent implements UtopiaBasicPersistent{
 
 private static final Logger logger;
@@ -41,68 +45,25 @@ private static final Logger logger;
 	static {
 		logger = Logger.getLogger(AbstractBasicPersistent.class);
 	}
-	private static Cache<Class<?>, Method[]>PK_METHOD_CACHE=new Cache<Class<?>, Method[]>();
-	private static final Object[] o=new Object[]{};
-	private static final Class<?> []c=new Class<?>[]{};
 	private List<LookupInfo> infos;
 	private List<UtopiaAttachmentInfo> attachInfos;
 	private List<List<String>> customProperties;
 	private String revisionDescription;
 	private HashMap<String,Collection<DetailPersistentValueInfo>>includedPersistentValues;
+	protected Long id;
 //************************************************************************************************
-	@Transient
-	@XmlTransient
-	public Long getRecordId() {
-		try {
-			Method []method= findPrimaryKeyMethods(getClass());
-			return (Long) method[0].invoke(this, o);
-		} catch (Exception e) {
-			logger.log(Level.ALL,"fail to invoke getRecordId",e);
-		}
-		return null;
+	@Column
+	@Id
+	@TableGenerator(name = "SequenceGenerator", 
+	table = "CO_SEQUENCE", pkColumnName = "TABLE_NAME", valueColumnName = "CURRENT_ID")
+	@GeneratedValue(strategy=GenerationType.TABLE,
+	generator="SequenceGenerator")
+	public Long getId() {
+		return id;
 	}
 //************************************************************************************************
-	public void setRecordId(Long recordId) {
-		Method method=findSetIdMethod();
-		if(method!=null){
-			try {
-				method.invoke(this, recordId);
-			} catch (Exception e) {
-				logger.log(Level.ALL,"fail to invoke setRecordId",e);
-			}
-		}
-	}
-//************************************************************************************************
-	private Method findSetIdMethod(){
-		Method []method=null;
-		try {
-			Class<?>clazz=	getClass();
-			method= findPrimaryKeyMethods(clazz);
-		} catch (Exception e) {
-				logger.log(Level.ALL,"fail to invoke setRecordId", e);
-				method=new Method[2];
-		}
-		return method[1];
-	}
-//************************************************************************************************
-	private static Method[] findPrimaryKeyMethods(Class<?>clazz)throws Exception{
-		if(!PK_METHOD_CACHE.containsKey(clazz)){
-			Method []result=new Method[2];
-			for(Method method: clazz.getMethods()){
-				if(method.getAnnotation(Id.class)!=null){
-					if(method.getName().startsWith("get")||method.getName().startsWith("is")){
-						result[0]= method;	
-						result[1]= clazz.getMethod(AnnotationUtil.getSetterMethodName(method.getName()), method.getReturnType()) ;
-					}else{
-						result[1]= method;	
-						result[0]= MethodUtils.getAccessibleMethod(clazz, AnnotationUtil.getGettrFromSetterMethodName(method.getName()), c) ;
-					}
-					break;
-				}
-			}
-			PK_METHOD_CACHE.put(clazz, result);
-		}
-		return PK_METHOD_CACHE.get(clazz);
+	public void setId(Long id) {
+		this.id=id;
 	}
 //************************************************************************************************
 	@XmlTransient
@@ -200,5 +161,11 @@ private static final Logger logger;
 		return includedPersistentValues!=null?includedPersistentValues.get(columnName):null;
 	}
 //************************************************************************************************
-
+	protected boolean isInitialized(Object mappedProperty, String propertyName){
+		return mappedProperty!=null&&(
+				!HibernateProxy.class.isInstance( mappedProperty)||
+				(HibernateProxy.class.isInstance(mappedProperty)&&
+				!((HibernateProxy)mappedProperty).getHibernateLazyInitializer().isUninitialized()));
+	}
+//************************************************************************************************
 }

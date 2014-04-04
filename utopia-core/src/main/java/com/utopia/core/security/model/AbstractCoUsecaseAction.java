@@ -4,18 +4,14 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToMany;
 
-import com.utopia.core.basicinformation.menu.model.CoMenu;
 import com.utopia.core.model.AbstractUtopiaPersistent;
+import com.utopia.core.model.CoMenu;
 
 /**
  * AbstractCoUsecaseAction entity provides the base persistence definition of
@@ -33,7 +29,6 @@ public abstract class AbstractCoUsecaseAction extends AbstractUtopiaPersistent i
 	 */
 	private static final long serialVersionUID = -824075396835903445L;
 
-	private Long coUsecaseActionId;
 	
 	private CoUsecase coUsecase;
 	private CoAction coAction;
@@ -46,20 +41,6 @@ public abstract class AbstractCoUsecaseAction extends AbstractUtopiaPersistent i
 
 	/** default constructor */
 	public AbstractCoUsecaseAction() {
-	}
-
-
-	// Property accessors
-	@Id
-	@GeneratedValue(strategy=GenerationType.TABLE,
-			generator="UsecaseActionSequenceGenerator")
-	@Column(name = "CO_USECASE_ACTION_ID", unique = true, nullable = false, insertable = true, updatable = true, precision = 10, scale = 0)
-	public Long getCoUsecaseActionId() {
-		return this.coUsecaseActionId;
-	}
-
-	public void setCoUsecaseActionId(Long coUsecaseActionId) {
-		this.coUsecaseActionId = coUsecaseActionId;
 	}
 	
 	@OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.LAZY, mappedBy = "coUsecaseAction")

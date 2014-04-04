@@ -7,8 +7,8 @@ import java.util.Set;
 import javax.interceptor.InvocationContext;
 import javax.security.auth.Subject;
 
-import com.utopia.common.systems.CmSubsystem;
-import com.utopia.common.systems.CmSystem;
+import com.utopia.common.model.CmSubsystem;
+import com.utopia.common.model.CmSystem;
 import com.utopia.core.exception.OrganizationAccessException;
 import com.utopia.core.security.exception.NotAuthenticatedException;
 import com.utopia.core.security.exception.NotAuthorizedActionException;

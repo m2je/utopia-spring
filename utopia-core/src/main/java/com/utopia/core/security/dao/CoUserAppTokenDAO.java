@@ -2,12 +2,11 @@ package com.utopia.core.security.dao;
 
 import java.util.List;
 
-import org.springframework.transaction.annotation.Transactional;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.utopia.core.security.model.CoUserAppToken;
 
@@ -19,7 +18,7 @@ public interface CoUserAppTokenDAO extends JpaRepository<CoUserAppToken, Long> {
 	@Query("SELECT CoUserAppToken FROM CoUserAppToken CoUserAppToken WHERE CoUserAppToken.refreshToken=:refreshToken ")
 	public CoUserAppToken findByRefreshToken(@Param("refreshToken") String refreshToken); 
 	
-	@Query("SELECT CoUserAppToken FROM CoUserAppToken CoUserAppToken WHERE CoUserAppToken.coUser.coUserId=:userId "
+	@Query("SELECT CoUserAppToken FROM CoUserAppToken CoUserAppToken WHERE CoUserAppToken.coUser.id=:userId "
 			+ "AND CoUserAppToken.coApplication.name=:applicationName ")
 	public CoUserAppToken findByUserApplication(@Param("userId") Long userId,@Param("applicationName") String applicationName);
 	

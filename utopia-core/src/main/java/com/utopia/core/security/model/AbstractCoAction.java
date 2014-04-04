@@ -6,9 +6,6 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToMany;
 
@@ -30,7 +27,6 @@ public abstract class AbstractCoAction extends AbstractUtopiaPersistent implemen
 	 */
 	private static final long serialVersionUID = 5780785409699454562L;
 
-	private Long coActionId;
 	
 	private String name;
 	private String methodName;
@@ -43,18 +39,6 @@ public abstract class AbstractCoAction extends AbstractUtopiaPersistent implemen
 	public AbstractCoAction() {
 	}
 
-	// Property accessors
-	@Id
-	@GeneratedValue(strategy=GenerationType.TABLE,
-			generator="ActionSequenceGenerator")
-	@Column(name = "CO_ACTION_ID", unique = true, nullable = false, insertable = true, updatable = true, precision = 10, scale = 0)
-	public Long getCoActionId() {
-		return this.coActionId;
-	}
-
-	public void setCoActionId(Long coActionId) {
-		this.coActionId = coActionId;
-	}
 
 	@Column(name = "NAME", unique = false, nullable = true, insertable = true, updatable = true, length = 50)
 	public String getName() {

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src/test/java"/>
+	<classpathentry kind="src" path="generated"/>
 	<classpathentry kind="src" path="src/test/resource"/>
 	<classpathentry kind="src" path="src/main/java"/>
 	<classpathentry kind="src" path="src/main/resource"/>
@@ -60,5 +61,7 @@
 	<classpathentry kind="var" path="M2_REPO/org/jasypt/jasypt/1.9.1/jasypt-1.9.1.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/jasypt/jasypt-hibernate4/1.9.1/jasypt-hibernate4-1.9.1.jar"/>
 	<classpathentry kind="var" path="M2_REPO/log4j/log4j/1.2.17/log4j-1.2.17.jar"/>
+	<classpathentry kind="var" path="M2_REPO/com/mysema/querydsl/querydsl-core/3.3.0/querydsl-core-3.3.0.jar"/>
+	<classpathentry kind="var" path="M2_REPO/com/mysema/querydsl/querydsl-jpa/3.3.0/querydsl-jpa-3.3.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

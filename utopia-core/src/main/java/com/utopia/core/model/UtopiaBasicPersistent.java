@@ -13,11 +13,11 @@ public interface UtopiaBasicPersistent {
 	 * 
 	 * @return
 	 */
-	public Long getRecordId();
+	public Long getId();
 	/**
 	 * 
 	 */
-	public void setRecordId(Long recordId);
+	public void setId(Long recordId);
 	
 	/**
 	 * sets lookup information 

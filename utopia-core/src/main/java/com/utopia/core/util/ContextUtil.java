@@ -125,7 +125,7 @@ public class ContextUtil {
 	public  Map<String,Object> createContext(HttpSession session,UtopiaPersistent persistent){
 		Map<String,Object>context=createContext(session);
 		if(persistent!=null){
-			context.put(RECORD_ID_KEY_IN_CONTEXT, Long.toString(persistent.getRecordId()));
+			context.put(RECORD_ID_KEY_IN_CONTEXT, Long.toString(persistent.getId()));
 		Method []methods=persistent.getClass().getMethods();
 		for(Method method:methods){
 			String methodName= method.getName();

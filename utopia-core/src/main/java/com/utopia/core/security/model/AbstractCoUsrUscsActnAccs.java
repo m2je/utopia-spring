@@ -1,10 +1,6 @@
 package com.utopia.core.security.model;
 
-import javax.persistence.Column;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
@@ -26,7 +22,6 @@ public abstract class AbstractCoUsrUscsActnAccs extends AbstractUtopiaPersistent
 	 * 
 	 */
 	private static final long serialVersionUID = 2672455068015163789L;
-	private Long coUsrUscsActnAccsId;
 	private CoUser coUser;
 	private CoUsecaseAction coUsecaseAction;
 	
@@ -36,21 +31,7 @@ public abstract class AbstractCoUsrUscsActnAccs extends AbstractUtopiaPersistent
 	/** default constructor */
 	public AbstractCoUsrUscsActnAccs() {
 	}
-
 	
-
-	// Property accessors
-	@Id
-	@GeneratedValue(strategy=GenerationType.TABLE,
-			generator="UsrUscsActnAccsSequenceGenerator")
-	@Column(name = "CO_USR_USCS_ACTN_ACCS_ID", unique = true, nullable = false, insertable = true, updatable = true, precision = 10, scale = 0)
-	public Long getCoUsrUscsActnAccsId() {
-		return this.coUsrUscsActnAccsId;
-	}
-
-	public void setCoUsrUscsActnAccsId(Long coUsrUscsActnAccsId) {
-		this.coUsrUscsActnAccsId = coUsrUscsActnAccsId;
-	}
 
 	@ManyToOne(cascade = {}, fetch = FetchType.LAZY)
 	@JoinColumn(name = "CO_USER_ID", unique = false, nullable = false, insertable = true, updatable = true)

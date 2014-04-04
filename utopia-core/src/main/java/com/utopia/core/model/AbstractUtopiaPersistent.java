@@ -29,7 +29,7 @@ public abstract class AbstractUtopiaPersistent extends SoftDeletePersistentSuppo
 	}
 //************************************************************************************************	
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "CREATED", unique = false, nullable = false, insertable = true, updatable = true, length = 7)
+	@Column(name = "CREATED", unique = false, nullable = false, insertable = false, updatable = false )
 	public Date getCreated() {
 		return this.created;
 	}
@@ -49,7 +49,7 @@ public abstract class AbstractUtopiaPersistent extends SoftDeletePersistentSuppo
 	}
 //***********************************************************************************************
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "UPDATED", unique = false, nullable = false, insertable = true, updatable = true, length = 7)
+	@Column(name = "UPDATED", unique = false, nullable = false, insertable = false, updatable = true)
 	public Date getUpdated() {
 		return this.updated;
 	}

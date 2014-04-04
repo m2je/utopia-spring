@@ -1,6 +1,6 @@
 package com.utopia.core.model;
 
-import com.utopia.common.basicinformation.organization.model.CmOrganization;
+import com.utopia.common.model.CmOrganization;
 
 
 public interface OrganizationData extends UtopiaBasicPersistent {

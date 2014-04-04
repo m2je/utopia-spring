@@ -1,9 +1,6 @@
 package com.utopia.core.security.model;
 
 import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
 import com.utopia.core.model.AbstractUtopiaPersistent;
@@ -20,7 +17,6 @@ public abstract class AbstractCoPortal extends AbstractUtopiaPersistent implemen
 	 * 
 	 */
 	private static final long serialVersionUID = 1448463382033230626L;
-	private Long coPortalId;
 	private String name;
 	private String domainName;
 
@@ -30,20 +26,6 @@ public abstract class AbstractCoPortal extends AbstractUtopiaPersistent implemen
 	public AbstractCoPortal() {
 	}
 
-	// Property accessors
-	@Id
-	@GeneratedValue(strategy=GenerationType.TABLE,
-	generator="PortalSequenceGenerator")
-	@Column(name = "CO_PORTAL_ID", unique = true, nullable = false, insertable = true, updatable = true, precision = 10, scale = 0)
-	public Long getCoPortalId() {
-		return this.coPortalId;
-	}
-
-	public void setCoPortalId(Long coPortalId) {
-		this.coPortalId = coPortalId;
-	}
-
-	
 	@Column(name = "NAME", unique = true, nullable = false, insertable = true, updatable = true, length = 300)
 	public String getName() {
 		return this.name;

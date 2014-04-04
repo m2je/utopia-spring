@@ -25,7 +25,7 @@ public class UtopiaAuthenticationInfo implements Authentication{
 	}
 	@Override
 	public String getName() {
-		return user.getCmBpartner().getName();
+		return user.getName();
 	}
 
 	@Override

@@ -62,7 +62,7 @@ public class UtopiaTokenStore implements TokenStore {
 		
 		CoUserAppToken ptoken=new CoUserAppToken();
 		CoUser user=new CoUser();
-		user.setCoUserId(getUserId(authentication));
+		user.setId(getUserId(authentication));
 		ptoken.setCoUser(user);
 		ptoken.setCoApplication(getApplication(authentication));
 		ptoken.setToken(token.getValue());
@@ -95,7 +95,7 @@ public class UtopiaTokenStore implements TokenStore {
 		CoAppRefreshToken refToken=new CoAppRefreshToken();
 		refToken.setCoApplication( getApplication(authentication));
 		CoUser user=new CoUser();
-		user.setCoUserId(getUserId(authentication));
+		user.setId(getUserId(authentication));
 		refToken.setCoUser(user);
 		refToken.setRefreshToken(refreshToken.getValue());
 		coAppRefreshTokenDAO.save(refToken);
@@ -159,7 +159,7 @@ public class UtopiaTokenStore implements TokenStore {
 	}
 //********************************************************************************************************************************************
 	protected Long getUserId(OAuth2Authentication authentication){
-		return ((UtopiaAuthenticationInfo)authentication.getUserAuthentication()).getUser().getCoUserId();
+		return ((UtopiaAuthenticationInfo)authentication.getUserAuthentication()).getUser().getId();
 	}
 //********************************************************************************************************************************************
 	protected String getApplicationName(OAuth2Authentication authentication){

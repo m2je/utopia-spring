@@ -10,7 +10,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Column;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
@@ -288,31 +287,6 @@ public class AnnotationUtil {
 				propsArray=MANY_TO_ONE_ANNOTATION_CACHE.get(key);
 			}
 		return propsArray;
-	}
-//*****************************************************************************
-	/**
-	 * 
-	 * @param persistent
-	 * @return
-	 */
-	@SuppressWarnings("unchecked")
-	public static String getPrimaryKeyName(Class<?> persistent){
-		String key=persistent.getName();
-		if(!CLASS_PRIMARY_KEY_CACHE.containsKey(key)){
-			 Set<Field>field= getFieldAnnotations(persistent, Id.class);
-			 Set<Method>methods= getMethodAnnotations(persistent, Id.class);
-			 if(field!=null&&field.size()>0){
-				 return field.iterator().next().getName();
-			 }else if(methods!=null&&methods.size()>0){
-				 Method method=methods.iterator().next();
-				 String result=
-				 method.getName().startsWith("get")?
-				  AnnotationUtil.getPropertyName(method.getName()): AnnotationUtil.getPropertyNameFromSetterMethod(method.getName());
-				  CLASS_PRIMARY_KEY_CACHE.put(key, result);
-			 }
-		}
-		return CLASS_PRIMARY_KEY_CACHE.get(key);
-		
 	}
 //*****************************************************************************
 	public static String[] getPersitentColumns(Class<?>clazz){

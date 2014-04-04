@@ -19,7 +19,7 @@ public class UsecaseAuthorities implements GrantedAuthority {
 	
 	public UsecaseAuthorities(CoUsecase useCase){
 		this.useCase=useCase.getFullName();
-		this.useCaseId=useCase.getCoUsecaseId();
+		this.useCaseId=useCase.getId();
 	}
 	@Override
 	public String getAuthority() {

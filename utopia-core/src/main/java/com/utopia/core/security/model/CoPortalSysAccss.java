@@ -4,7 +4,6 @@ package com.utopia.core.security.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import javax.persistence.TableGenerator;
 import javax.persistence.UniqueConstraint;
 
 /**
@@ -13,8 +12,6 @@ import javax.persistence.UniqueConstraint;
 @Entity
 @Table(name = "CO_PORTAL_SYS_ACCSS", uniqueConstraints = { @UniqueConstraint(columnNames = {
 		"CO_PORTAL_ID", "CM_SYSTEM_ID", "CM_SUBSYSTEM_ID" }) })
-@TableGenerator(name = "PortalAccssSequenceGenerator", 
-table = "CO_SEQUENCE", pkColumnName = "TABLENAME", valueColumnName = "CURRENTID", pkColumnValue = "CO_PORTAL")
 public class CoPortalSysAccss extends AbstractCoPortalSysAccss implements
 		java.io.Serializable {
 

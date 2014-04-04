@@ -4,7 +4,6 @@ package com.utopia.core.security.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import javax.persistence.TableGenerator;
 import javax.persistence.UniqueConstraint;
 
 /**
@@ -14,8 +13,6 @@ import javax.persistence.UniqueConstraint;
 @Table(name = "CO_PORTAL", uniqueConstraints = {
 		@UniqueConstraint(columnNames = { "DOMAIN_NAME" }),
 		@UniqueConstraint(columnNames = { "NAME" }) })
-@TableGenerator(name = "PortalSequenceGenerator", 
-table = "CO_SEQUENCE", pkColumnName = "TABLENAME", valueColumnName = "CURRENTID", pkColumnValue = "CO_PORTAL")
 public class CoPortal extends AbstractCoPortal implements java.io.Serializable {
 
 	// Constructors

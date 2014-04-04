@@ -6,9 +6,6 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToMany;
 
@@ -26,7 +23,6 @@ public abstract class AbstractCoApplication extends SoftDeletePersistentSupport 
 	 * 
 	 */
 	private static final long serialVersionUID = -235908653141048628L;
-	private Long coApplicationId;
 	private String name;
 	private String secretKey;
 	private int tokenValidity;
@@ -42,19 +38,6 @@ public abstract class AbstractCoApplication extends SoftDeletePersistentSupport 
 	public AbstractCoApplication() {
 	}
 
-	
-	// Property accessors
-	@Id
-	@GeneratedValue(strategy=GenerationType.TABLE,
-		generator="ApplicationSequenceGenerator")
-	@Column(name = "CO_APPLICATION_ID", unique = true, nullable = false, insertable = true, updatable = true, precision = 10, scale = 0)
-	public Long getCoApplicationId() {
-		return this.coApplicationId;
-	}
-
-	public void setCoApplicationId(Long coApplicationId) {
-		this.coApplicationId = coApplicationId;
-	}
 
 	@Column(name = "NAME", unique = true, nullable = false, insertable = true, updatable = true, length = 3000)
 	public String getName() {

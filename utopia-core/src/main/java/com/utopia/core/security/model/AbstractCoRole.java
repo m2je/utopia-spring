@@ -6,9 +6,6 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToMany;
 
@@ -29,7 +26,6 @@ public abstract class AbstractCoRole extends AbstractUtopiaPersistent implements
 	 * 
 	 */
 	private static final long serialVersionUID = -7000866511878044342L;
-	private Long coRoleId;
 	private String name;
 	
 	private Set<CoUserRoles> coUserRoleses = new HashSet<CoUserRoles>(0);
@@ -44,20 +40,6 @@ public abstract class AbstractCoRole extends AbstractUtopiaPersistent implements
 
 	/** default constructor */
 	public AbstractCoRole() {
-	}
-
-	
-	// Property accessors
-	@Id
-	@GeneratedValue(strategy=GenerationType.TABLE,
-			generator="RoleSequenceGenerator")
-	@Column(name = "CO_ROLE_ID", unique = true, nullable = false, insertable = true, updatable = true, precision = 10, scale = 0)
-	public Long getCoRoleId() {
-		return this.coRoleId;
-	}
-
-	public void setCoRoleId(Long coRoleId) {
-		this.coRoleId = coRoleId;
 	}
 
 	@Column(name = "NAME", unique = true, nullable = false, insertable = true, updatable = true, length = 200)

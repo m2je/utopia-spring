@@ -1,16 +1,12 @@
 package com.utopia.core.security.model;
 
-import javax.persistence.Column;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
 
-import com.utopia.common.systems.CmSubsystem;
-import com.utopia.common.systems.CmSystem;
+import com.utopia.common.model.CmSubsystem;
+import com.utopia.common.model.CmSystem;
 import com.utopia.core.model.AbstractBasicPersistent;
 
 /**
@@ -25,7 +21,6 @@ public abstract class AbstractCoPortalSysAccss extends AbstractBasicPersistent i
 	 * 
 	 */
 	private static final long serialVersionUID = 1291387372298877062L;
-	private Long coPortalSysAccssId;
 	private CmSystem cmSystem;
 	private CmSubsystem cmSubsystem;
 	private CoPortal coPortal;
@@ -36,17 +31,7 @@ public abstract class AbstractCoPortalSysAccss extends AbstractBasicPersistent i
 	public AbstractCoPortalSysAccss() {
 	}
 	
-	@GeneratedValue(strategy=GenerationType.TABLE,
-	generator="PortalAccssSequenceGenerator")
-	@Id
-	@Column(name = "CO_PORTAL_SYS_ACCSS_ID", unique = true, nullable = false, insertable = true, updatable = true, precision = 10, scale = 0)
-	public Long getCoPortalSysAccssId() {
-		return this.coPortalSysAccssId;
-	}
-
-	public void setCoPortalSysAccssId(Long coPortalSysAccssId) {
-		this.coPortalSysAccssId = coPortalSysAccssId;
-	}
+	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name = "CM_SYSTEM_ID", unique = false, nullable = false, insertable = true, updatable = true)
 	public CmSystem getCmSystem() {

@@ -29,6 +29,7 @@
     <!--
     <Valve className="org.apache.catalina.valves.CometConnectionManagerValve" />
     -->
+<!--     
 <Resource name="jdbc/coreResource"  auth="Container"
             type="javax.sql.DataSource" driverClassName="oracle.jdbc.xa.OracleXADataSource"
             url="jdbc:oracle:thin:@localhost:1521:utopia"
@@ -39,5 +40,11 @@
             url="jdbc:oracle:thin:@localhost:1521:utopia"
             username="common" password="common" removeAbandoned="true" logAbandoned="true"
             maxActive="10" maxIdle="5" maxWait="-1" validationQuery="SELECT sysdate from dual "/>
-
+ -->
+ <Resource name="jdbc/coreResource"  auth="Container"
+            type="javax.sql.DataSource" driverClassName="com.mysql.jdbc.Driver"
+            url="jdbc:mysql://localhost/core"
+            username="core" password="core" removeAbandoned="true" logAbandoned="true"
+            maxActive="10" maxIdle="5" maxWait="-1" validationQuery="SELECT now() "/>
+ 
 </Context>

@@ -1,10 +1,6 @@
 package com.utopia.core.security.model;
 
-import javax.persistence.Column;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
@@ -26,7 +22,6 @@ public abstract class AbstractCoRoleUsecaseAcss extends AbstractUtopiaPersistent
 	 * 
 	 */
 	private static final long serialVersionUID = -2794261476045135321L;
-	private Long coRoleUsecaseAcssId;
 	private CoRole coRole;
 	private CoUsecase coUsecase;
 
@@ -39,17 +34,7 @@ public abstract class AbstractCoRoleUsecaseAcss extends AbstractUtopiaPersistent
 
 
 	// Property accessors
-	@Id
-	@GeneratedValue(strategy=GenerationType.TABLE,
-			generator="RoleUsecaseAcssSequenceGenerator")
-	@Column(name = "CO_ROLE_USECASE_ACSS_ID", unique = true, nullable = false, insertable = true, updatable = true, precision = 10, scale = 0)
-	public Long getCoRoleUsecaseAcssId() {
-		return this.coRoleUsecaseAcssId;
-	}
-
-	public void setCoRoleUsecaseAcssId(Long coRoleUsecaseAcssId) {
-		this.coRoleUsecaseAcssId = coRoleUsecaseAcssId;
-	}
+	
 
 	@ManyToOne(cascade = {}, fetch = FetchType.LAZY)
 	@JoinColumn(name = "CO_ROLE_ID", unique = false, nullable = false, insertable = true, updatable = true)
