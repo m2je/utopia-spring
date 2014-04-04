@@ -6,7 +6,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Component;
 
-import com.utopia.core.security.model.CoUsecase;
+import com.utopia.core.model.CoUsecase;
 import com.utopia.core.service.AbstractUtopiaService;
 @Component
 public class UsecaseServiceImpl extends AbstractUtopiaService implements UsecaseService{

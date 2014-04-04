@@ -11,7 +11,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.oauth2.provider.ClientDetails;
 
-import com.utopia.core.security.model.CoApplication;
+import com.utopia.core.model.CoApplication;
 
 public class Client implements ClientDetails{
 	/**

@@ -20,7 +20,7 @@ import com.utopia.core.model.AbstractUtopiaPersistent;
 @Entity
 @Table(name = "CM_SYSTEM_PARAMETER",  uniqueConstraints = { @UniqueConstraint(columnNames = {
 		"CM_SYSTEM_ID", "KEY" }) })
-public abstract class CmSystemParameter extends AbstractUtopiaPersistent implements java.io.Serializable {
+public class CmSystemParameter extends AbstractUtopiaPersistent implements java.io.Serializable {
 
 	// Fields
 

@@ -1,20 +1,22 @@
-package com.utopia.core.security.model;
+package com.utopia.core.model;
 
+import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.Table;
 
-import com.utopia.core.model.AbstractUtopiaPersistent;
+import com.utopia.core.security.SecurityChangeListener;
 
 /**
- * AbstractCoRoleUsecaseAcss entity provides the base persistence definition of
- * the CoRoleUsecaseAcss entity.
  * 
  * @author Mehdi
  */
-@MappedSuperclass
-public abstract class AbstractCoRoleUsecaseAcss extends AbstractUtopiaPersistent implements java.io.Serializable {
+@Entity
+@Table(name = "CO_ROLE_USECASE_ACSS",  uniqueConstraints = {})
+@EntityListeners(value=SecurityChangeListener.class)
+public  class CoRoleUsecaseAcss extends AbstractUtopiaPersistent implements java.io.Serializable {
 
 	// Fields
 
@@ -29,7 +31,7 @@ public abstract class AbstractCoRoleUsecaseAcss extends AbstractUtopiaPersistent
 
 
 	/** default constructor */
-	public AbstractCoRoleUsecaseAcss() {
+	public CoRoleUsecaseAcss() {
 	}
 
 

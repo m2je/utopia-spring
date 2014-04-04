@@ -11,8 +11,6 @@ import javax.persistence.Table;
 import com.utopia.core.model.AbstractUtopiaPersistent;
 
 /**
- * AbstractCmCountry entity provides the base persistence definition of the
- * CmCountry entity.
  * 
  * @author Mehdi
  */

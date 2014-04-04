@@ -14,6 +14,8 @@ import javax.persistence.PersistenceContext;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.config.AbstractFactoryBean;
 import org.springframework.stereotype.Service;
+
+import com.utopia.core.model.CoSettings;
 @Service
 public class UtopiaPropertiesFactoryBean extends  AbstractFactoryBean<Properties>{
 	private static Logger logger=Logger.getLogger(UtopiaPropertiesFactoryBean.class);

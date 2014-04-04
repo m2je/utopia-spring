@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import com.utopia.core.dao.UtopiaDAO;
-import com.utopia.core.security.model.CoUsecase;
+import com.utopia.core.model.CoUsecase;
 
 public interface UsecaseDAO extends UtopiaDAO,JpaRepository<CoUsecase, Long> {
 

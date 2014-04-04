@@ -1,19 +1,22 @@
-package com.utopia.core.security.model;
+package com.utopia.core.model;
 
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import com.utopia.common.model.CmSubsystem;
 import com.utopia.common.model.CmSystem;
-import com.utopia.core.model.AbstractBasicPersistent;
 
 /**
  * AbstractCoPortalSysAccss 
  */
-@MappedSuperclass
-public abstract class AbstractCoPortalSysAccss extends AbstractBasicPersistent implements java.io.Serializable {
+@Entity
+@Table(name = "CO_PORTAL_SYS_ACCSS", uniqueConstraints = { @UniqueConstraint(columnNames = {
+		"CO_PORTAL_ID", "CM_SYSTEM_ID", "CM_SUBSYSTEM_ID" }) })
+public  class CoPortalSysAccss extends AbstractBasicPersistent implements java.io.Serializable {
 
 	// Fields
 
@@ -28,7 +31,7 @@ public abstract class AbstractCoPortalSysAccss extends AbstractBasicPersistent i
 	// Constructors
 
 	/** default constructor */
-	public AbstractCoPortalSysAccss() {
+	public CoPortalSysAccss() {
 	}
 	
 	

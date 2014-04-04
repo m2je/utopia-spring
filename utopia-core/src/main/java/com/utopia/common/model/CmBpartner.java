@@ -12,8 +12,6 @@ import javax.persistence.Table;
 import com.utopia.core.model.AbstractUtopiaPersistent;
 
 /**
- * AbstractCmBpartner entity provides the base persistence definition of the
- * CmBpartner entity.
  * 
  * @author Mehdi
  */

@@ -17,13 +17,13 @@ import org.springframework.security.oauth2.common.util.SerializationUtils;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 
+import com.utopia.core.model.CoAppRefreshToken;
+import com.utopia.core.model.CoApplication;
+import com.utopia.core.model.CoUser;
+import com.utopia.core.model.CoUserAppToken;
 import com.utopia.core.security.dao.CoAppRefreshTokenDAO;
 import com.utopia.core.security.dao.CoApplicationDAO;
 import com.utopia.core.security.dao.CoUserAppTokenDAO;
-import com.utopia.core.security.model.CoAppRefreshToken;
-import com.utopia.core.security.model.CoApplication;
-import com.utopia.core.security.model.CoUser;
-import com.utopia.core.security.model.CoUserAppToken;
 import com.utopia.core.util.TimeService;
 
 public class UtopiaTokenStore implements TokenStore {

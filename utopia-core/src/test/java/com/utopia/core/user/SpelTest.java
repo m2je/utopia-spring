@@ -9,7 +9,7 @@ import org.springframework.expression.ExpressionParser;
 import org.springframework.expression.spel.standard.SpelExpressionParser;
 import org.springframework.expression.spel.support.StandardEvaluationContext;
 
-import com.utopia.core.security.model.CoUser;
+import com.utopia.core.model.CoUser;
 
 public class SpelTest {
 

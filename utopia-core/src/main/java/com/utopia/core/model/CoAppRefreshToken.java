@@ -1,28 +1,30 @@
-package com.utopia.core.security.model;
-
+package com.utopia.core.model;
 
 import javax.persistence.Entity;
+import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 /**
- * CoAppRefreshToken
+ * AbstractCoAppRefreshToken 
  */
 @Entity
 @Table(name = "CO_APP_REFRESH_TOKEN", uniqueConstraints = { @UniqueConstraint(columnNames = { "REFRESH_TOKEN" }) })
-public class CoAppRefreshToken extends AbstractCoAppRefreshToken implements
-		java.io.Serializable {
+public  class CoAppRefreshToken extends AbstractCoAppToken implements java.io.Serializable {
 
-	// Constructors
+	// Fields
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1589882079264751246L;
+	private static final long serialVersionUID = -2094317080061625538L;
+
+	// Constructors
 
 	/** default constructor */
 	public CoAppRefreshToken() {
 	}
+
 
 	
 

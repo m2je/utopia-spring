@@ -17,11 +17,8 @@ import javax.persistence.Table;
 import com.utopia.common.model.CmSubsystem;
 import com.utopia.core.constants.Constants.MenuLinkTarget;
 import com.utopia.core.model.annotations.LookupConfiguration;
-import com.utopia.core.security.model.CoUsecaseAction;
 
 /**
- * AbstractCoMenu entity provides the base persistence definition of the CoMenu
- * entity.
  * 
  * @author Mehdi
  */

@@ -1,20 +1,23 @@
-package com.utopia.core.security.model;
+package com.utopia.core.model;
 
+import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.Table;
 
-import com.utopia.core.model.AbstractUtopiaPersistent;
+import com.utopia.core.security.SecurityChangeListener;
 
 /**
- * AbstractCoUserUsecaseAcss entity provides the base persistence definition of
- * the CoUserUsecaseAcss entity.
  * 
  * @author Mehdi
  */
-@MappedSuperclass
-public abstract class AbstractCoUserUsecaseAcss extends AbstractUtopiaPersistent implements java.io.Serializable {
+@Entity
+@Table(name = "CO_USER_USECASE_ACSS",  uniqueConstraints = {})
+@EntityListeners(value=SecurityChangeListener.class)
+public class CoUserUsecaseAcss extends AbstractUtopiaPersistent implements java.io.Serializable {
 
 	// Fields
 
@@ -29,7 +32,7 @@ public abstract class AbstractCoUserUsecaseAcss extends AbstractUtopiaPersistent
 
 
 	/** default constructor */
-	public AbstractCoUserUsecaseAcss() {
+	public CoUserUsecaseAcss() {
 	}
 
 	@ManyToOne(cascade = {}, fetch = FetchType.LAZY)

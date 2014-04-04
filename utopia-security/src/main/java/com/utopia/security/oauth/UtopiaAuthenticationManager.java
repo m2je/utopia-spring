@@ -8,8 +8,8 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.context.SecurityContextHolder;
 
+import com.utopia.core.model.CoUser;
 import com.utopia.core.security.dao.UserDAO;
-import com.utopia.core.security.model.CoUser;
 
 public class UtopiaAuthenticationManager implements AuthenticationManager{
 

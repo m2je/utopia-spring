@@ -1,24 +1,25 @@
-package com.utopia.core.security.model;
+package com.utopia.core.model;
 
 import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToMany;
-
-import com.utopia.core.model.AbstractUtopiaPersistent;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 /**
- * AbstractCoRole entity provides the base persistence definition of the CoRole
- * entity.
+ * 
+ * 
  * 
  * @author Mehdi
  */
-@MappedSuperclass
-public abstract class AbstractCoRole extends AbstractUtopiaPersistent implements java.io.Serializable {
+@Entity
+@Table(name = "CO_ROLE",  uniqueConstraints = { @UniqueConstraint(columnNames = { "NAME" }) })
+public  class CoRole extends AbstractUtopiaPersistent implements java.io.Serializable {
 
 	// Fields
 
@@ -39,7 +40,7 @@ public abstract class AbstractCoRole extends AbstractUtopiaPersistent implements
 	// Constructors
 
 	/** default constructor */
-	public AbstractCoRole() {
+	public CoRole() {
 	}
 
 	@Column(name = "NAME", unique = true, nullable = false, insertable = true, updatable = true, length = 200)

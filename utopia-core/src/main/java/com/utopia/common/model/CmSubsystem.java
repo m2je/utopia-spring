@@ -11,15 +11,13 @@ import com.utopia.core.model.AbstractUtopiaPersistent;
 import com.utopia.core.model.annotations.LookupConfiguration;
 
 /**
- * AbstractCmSubsystem entity provides the base persistence definition of the
- * CmSubsystem entity.
  * 
  * @author Mehdi
  */
 @Entity
 @Table(name = "CM_SUBSYSTEM",  uniqueConstraints = { @UniqueConstraint(columnNames = { "NAME" }) })
 	@LookupConfiguration(displayColumns={"abbreviation","name"})
-public abstract class CmSubsystem extends AbstractUtopiaPersistent implements java.io.Serializable {
+public class CmSubsystem extends AbstractUtopiaPersistent implements java.io.Serializable {
 
 	// Fields
 

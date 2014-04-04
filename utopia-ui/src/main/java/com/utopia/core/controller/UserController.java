@@ -4,8 +4,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.utopia.core.api.AbstractAPIController;
+import com.utopia.core.model.CoUser;
 import com.utopia.core.model.CollectionResult;
-import com.utopia.core.security.model.CoUser;
 
 //@Controller
 //@RequestMapping("/api")

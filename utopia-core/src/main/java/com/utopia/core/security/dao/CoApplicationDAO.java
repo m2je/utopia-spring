@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import com.utopia.core.dao.UtopiaDAO;
-import com.utopia.core.security.model.CoApplication;
+import com.utopia.core.model.CoApplication;
 
 public interface CoApplicationDAO extends JpaRepository<CoApplication, Long> ,UtopiaDAO{
 	

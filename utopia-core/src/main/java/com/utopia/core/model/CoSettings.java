@@ -1,4 +1,4 @@
-package com.utopia.core.util;
+package com.utopia.core.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,7 +8,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.utopia.common.model.CmSystem;
-import com.utopia.core.model.AbstractBasicPersistent;
 
 @Entity
 @Table(name="CO_SETTINGS")

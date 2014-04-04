@@ -5,8 +5,6 @@ package com.utopia.core.model;
 
 import java.util.Date;
 
-import com.utopia.core.security.model.CoUser;
-
 /**
  * @author salarkia
  *

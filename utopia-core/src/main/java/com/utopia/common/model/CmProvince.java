@@ -10,14 +10,12 @@ import javax.persistence.Table;
 import com.utopia.core.model.AbstractUtopiaPersistent;
 
 /**
- * AbstractCmProvince entity provides the base persistence definition of the
- * CmProvince entity.
  * 
  * @author Mehdi
  */
 @Entity
 @Table(name = "CM_PROVINCE",  uniqueConstraints = {})
-public abstract class CmProvince extends AbstractUtopiaPersistent implements java.io.Serializable {
+public class CmProvince extends AbstractUtopiaPersistent implements java.io.Serializable {
 
 	// Fields
 

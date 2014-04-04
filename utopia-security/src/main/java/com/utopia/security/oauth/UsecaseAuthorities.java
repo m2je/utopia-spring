@@ -2,7 +2,7 @@ package com.utopia.security.oauth;
 
 import org.springframework.security.core.GrantedAuthority;
 
-import com.utopia.core.security.model.CoUsecase;
+import com.utopia.core.model.CoUsecase;
 /**
  * the authority base on system use cases
  * @author Mehdi

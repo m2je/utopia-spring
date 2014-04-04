@@ -1,26 +1,26 @@
-package com.utopia.core.security.model;
+package com.utopia.core.model;
 
 import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
-import com.utopia.core.model.AbstractUtopiaPersistent;
-import com.utopia.core.model.CoMenu;
+import com.utopia.core.model.annotations.LookupConfiguration;
 
 /**
- * AbstractCoUsecaseAction entity provides the base persistence definition of
- * the CoUsecaseAction entity.
  * 
  * @author Mehdi
  */
-@MappedSuperclass
-public abstract class AbstractCoUsecaseAction extends AbstractUtopiaPersistent implements java.io.Serializable {
+@Entity
+@Table(name = "CO_USECASE_ACTION", uniqueConstraints = {})
+@LookupConfiguration(displayColumns={"coAction.name","coUsecase.name"},displayItemSeperator="-")
+public  class CoUsecaseAction extends AbstractUtopiaPersistent implements java.io.Serializable {
 
 	// Fields
 
@@ -40,7 +40,7 @@ public abstract class AbstractCoUsecaseAction extends AbstractUtopiaPersistent i
 	// Constructors
 
 	/** default constructor */
-	public AbstractCoUsecaseAction() {
+	public CoUsecaseAction() {
 	}
 	
 	@OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.LAZY, mappedBy = "coUsecaseAction")

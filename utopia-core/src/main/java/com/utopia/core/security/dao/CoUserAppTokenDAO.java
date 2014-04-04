@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.utopia.core.security.model.CoUserAppToken;
+import com.utopia.core.model.CoUserAppToken;
 
 public interface CoUserAppTokenDAO extends JpaRepository<CoUserAppToken, Long> {
 	

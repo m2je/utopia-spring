@@ -4,7 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.utopia.core.security.model.CoAppRefreshToken;
+import com.utopia.core.model.CoAppRefreshToken;
 
 public interface CoAppRefreshTokenDAO extends JpaRepository<CoAppRefreshToken, Long>{
 

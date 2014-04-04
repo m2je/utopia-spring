@@ -1,4 +1,4 @@
-package com.utopia.core.security.model;
+package com.utopia.core.model;
 
 import java.io.Serializable;
 
@@ -9,8 +9,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
-
-import com.utopia.core.model.AbstractBasicPersistent;
 @MappedSuperclass
 public class AbstractCoAppToken extends AbstractBasicPersistent implements Serializable{
 

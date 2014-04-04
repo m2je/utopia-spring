@@ -12,9 +12,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.utopia.common.model.CmBpartner;
+import com.utopia.core.model.CoPortal;
+import com.utopia.core.model.CoUser;
 import com.utopia.core.security.dao.CoUserAppTokenDAO;
-import com.utopia.core.security.model.CoPortal;
-import com.utopia.core.security.model.CoUser;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "/core-test.xml")

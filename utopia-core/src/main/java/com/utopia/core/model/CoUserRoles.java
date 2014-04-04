@@ -1,19 +1,22 @@
-package com.utopia.core.security.model;
+package com.utopia.core.model;
 
+import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.Table;
 
-import com.utopia.core.model.AbstractUtopiaPersistent;
+import com.utopia.core.security.SecurityChangeListener;
 
 /**
- * AbstractCoUserRoles entity provides the base persistence definition of the
- * CoUserRoles entity.
  * 
  * @author Mehdi
  */
-@MappedSuperclass
-public abstract class AbstractCoUserRoles extends AbstractUtopiaPersistent implements java.io.Serializable {
+@Entity
+@Table(name = "CO_USER_ROLES", uniqueConstraints = {})
+@EntityListeners(value=SecurityChangeListener.class)
+public class CoUserRoles extends AbstractUtopiaPersistent implements java.io.Serializable {
 
 	// Fields
 
@@ -28,7 +31,7 @@ public abstract class AbstractCoUserRoles extends AbstractUtopiaPersistent imple
 	// Constructors
 
 	/** default constructor */
-	public AbstractCoUserRoles() {
+	public CoUserRoles() {
 	}
 	@ManyToOne
 	@JoinColumn(name = "CO_USER_ID", unique = false, nullable = false, insertable = true, updatable = true)

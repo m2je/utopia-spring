@@ -16,8 +16,6 @@ import com.utopia.core.model.AbstractUtopiaPersistent;
 import com.utopia.core.model.annotations.LookupConfiguration;
 
 /**
- * AbstractCmSystem entity provides the base persistence definition of the
- * CmSystem entity.
  * 
  * @author Mehdi
  */

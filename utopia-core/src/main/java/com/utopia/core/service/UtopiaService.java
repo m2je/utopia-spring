@@ -2,7 +2,7 @@ package com.utopia.core.service;
 
 import java.util.List;
 
-import com.utopia.core.security.model.CoUsecase;
+import com.utopia.core.model.CoUsecase;
 
 public interface UtopiaService {
 

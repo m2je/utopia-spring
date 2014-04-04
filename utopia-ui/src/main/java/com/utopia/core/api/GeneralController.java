@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.utopia.core.security.model.CoUsecase;
+import com.utopia.core.model.CoUsecase;
 import com.utopia.core.usecase.UsecaseService;
 
 @Controller

@@ -1,15 +1,19 @@
-package com.utopia.core.security.model;
+package com.utopia.core.model;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.MappedSuperclass;
-
-import com.utopia.core.model.AbstractUtopiaPersistent;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 /**
  * AbstractCoPortal
  */
-@MappedSuperclass
-public abstract class AbstractCoPortal extends AbstractUtopiaPersistent implements java.io.Serializable {
+@Entity
+@Table(name = "CO_PORTAL", uniqueConstraints = {
+		@UniqueConstraint(columnNames = { "DOMAIN_NAME" }),
+		@UniqueConstraint(columnNames = { "NAME" }) })
+public  class CoPortal extends AbstractUtopiaPersistent implements java.io.Serializable {
 
 	// Fields
 
@@ -23,7 +27,7 @@ public abstract class AbstractCoPortal extends AbstractUtopiaPersistent implemen
 	// Constructors
 
 	/** default constructor */
-	public AbstractCoPortal() {
+	public CoPortal() {
 	}
 
 	@Column(name = "NAME", unique = true, nullable = false, insertable = true, updatable = true, length = 300)

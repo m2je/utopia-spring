@@ -1,4 +1,4 @@
-package com.utopia.core.security.model;
+package com.utopia.core.model;
 
 import java.util.Date;
 

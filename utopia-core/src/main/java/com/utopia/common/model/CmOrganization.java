@@ -18,7 +18,7 @@ import com.utopia.core.model.annotations.LookupConfiguration;
 @Entity
 @Table(name = "CM_ORGANIZATION",  uniqueConstraints = { /*@UniqueConstraint(columnNames = { "NAME","PARENT_ID" })*/ })
 @LookupConfiguration(displayColumns={"code","name"},displayItemSeperator=" - ",descriptionColumnName="description")
-public abstract class CmOrganization extends AbstractUtopiaPersistent implements java.io.Serializable {
+public  class CmOrganization extends AbstractUtopiaPersistent implements java.io.Serializable {
 
 	// Fields
 

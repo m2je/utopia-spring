@@ -5,7 +5,7 @@ import java.util.Collection;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 
-import com.utopia.core.security.model.CoUser;
+import com.utopia.core.model.CoUser;
 
 public class UtopiaAuthenticationInfo implements Authentication{
 

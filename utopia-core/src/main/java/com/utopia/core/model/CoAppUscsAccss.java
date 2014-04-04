@@ -1,17 +1,20 @@
-package com.utopia.core.security.model;
+package com.utopia.core.model;
 
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
-
-import com.utopia.core.model.AbstractBasicPersistent;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 /**
  * AbstractCoAppUscsAccss 
  */
-@MappedSuperclass
-public abstract class AbstractCoAppUscsAccss extends AbstractBasicPersistent implements java.io.Serializable {
+@Entity
+@Table(name = "CO_APP_USCS_ACCSS", uniqueConstraints = { @UniqueConstraint(columnNames = {
+		"CO_USECASE_ID", "CO_APPLICATION_ID" }) })
+public  class CoAppUscsAccss extends AbstractBasicPersistent implements java.io.Serializable {
 
 	// Fields
 
@@ -26,7 +29,7 @@ public abstract class AbstractCoAppUscsAccss extends AbstractBasicPersistent imp
 	// Constructors
 
 	/** default constructor */
-	public AbstractCoAppUscsAccss() {
+	public CoAppUscsAccss() {
 	}
 
 	@ManyToOne(cascade = {}, fetch = FetchType.LAZY)

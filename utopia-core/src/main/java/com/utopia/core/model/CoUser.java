@@ -1,4 +1,4 @@
- package com.utopia.core.security.model;
+ package com.utopia.core.model;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -22,12 +22,9 @@ import org.hibernate.annotations.Type;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.utopia.common.model.CmBpartner;
-import com.utopia.core.model.AbstractOrganizationData;
 import com.utopia.core.model.annotations.LookupConfiguration;
 
 /**
- * AbstractCoUser entity provides the base persistence definition of the CoUser
- * entity.
  * 
  * @author Mehdi
  */

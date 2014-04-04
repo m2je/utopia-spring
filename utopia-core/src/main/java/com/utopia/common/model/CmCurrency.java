@@ -8,8 +8,6 @@ import javax.persistence.Table;
 import com.utopia.core.model.AbstractUtopiaPersistent;
 
 /**
- * AbstractCmCurrency entity provides the base persistence definition of the
- * CmCurrency entity.
  * 
  * @author Mehdi
  */

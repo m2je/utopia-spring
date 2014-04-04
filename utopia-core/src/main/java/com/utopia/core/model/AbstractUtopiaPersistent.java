@@ -11,8 +11,6 @@ import javax.persistence.MappedSuperclass;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import com.utopia.core.security.model.CoUser;
-
 @MappedSuperclass
 public abstract class AbstractUtopiaPersistent extends SoftDeletePersistentSupport implements UtopiaPersistent,Serializable {
 	/**

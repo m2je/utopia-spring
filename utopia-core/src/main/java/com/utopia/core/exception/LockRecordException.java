@@ -1,6 +1,6 @@
 package com.utopia.core.exception;
 
-import com.utopia.core.security.model.CoUser;
+import com.utopia.core.model.CoUser;
 
 public class LockRecordException extends CoreException {
 

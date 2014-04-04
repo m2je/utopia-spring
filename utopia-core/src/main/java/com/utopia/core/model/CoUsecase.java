@@ -1,27 +1,27 @@
-package com.utopia.core.security.model;
+package com.utopia.core.model;
 
 import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import com.utopia.common.model.CmSubsystem;
-import com.utopia.core.model.AbstractUtopiaPersistent;
 
 /**
- * AbstractCoUsecase entity provides the base persistence definition of the
- * CoUsecase entity.
  * 
  * @author Mehdi
  */
-@MappedSuperclass
-public abstract class AbstractCoUsecase extends AbstractUtopiaPersistent implements java.io.Serializable {
+@Entity
+@Table(name = "CO_USECASE",  uniqueConstraints = {})
+public  class CoUsecase extends AbstractUtopiaPersistent implements java.io.Serializable {
 
 	// Fields
 
@@ -38,7 +38,7 @@ public abstract class AbstractCoUsecase extends AbstractUtopiaPersistent impleme
 	// Constructors
 
 	/** default constructor */
-	public AbstractCoUsecase() {
+	public CoUsecase() {
 	}
 
 	@Column(name = "NAME", unique = false, nullable = true, insertable = true, updatable = true, length = 50)
@@ -75,8 +75,11 @@ public abstract class AbstractCoUsecase extends AbstractUtopiaPersistent impleme
 	public void setCoUsecaseActions(Set<CoUsecaseAction> coUsecaseActions) {
 		this.coUsecaseActions = coUsecaseActions;
 	}
-	
 
+	@Transient
+	public String getFullName(){
+		return getCmSubsystem().getCmSystem().getAbbreviation()+getCmSubsystem().getAbbreviation()+getName();
+	}
 
 	
 	 

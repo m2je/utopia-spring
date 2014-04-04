@@ -1,11 +1,14 @@
-package com.utopia.core.security.model;
+package com.utopia.core.model;
 
+import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.Table;
 
 import com.utopia.common.model.CmSubsystem;
-import com.utopia.core.model.AbstractUtopiaPersistent;
+import com.utopia.core.security.SecurityChangeListener;
 
 /**
  * AbstractCoRoleSubsystemAcss entity provides the base persistence definition
@@ -13,8 +16,10 @@ import com.utopia.core.model.AbstractUtopiaPersistent;
  * 
  * @author Mehdi
  */
-@MappedSuperclass
-public abstract class AbstractCoRoleSubsystemAcss extends AbstractUtopiaPersistent implements
+@Entity
+@Table(name = "CO_ROLE_SUBSYSTEM_ACSS",  uniqueConstraints = {})
+@EntityListeners(value=SecurityChangeListener.class)	
+public  class CoRoleSubsystemAcss extends AbstractUtopiaPersistent implements
 		java.io.Serializable {
 
 	// Fields
@@ -30,7 +35,7 @@ public abstract class AbstractCoRoleSubsystemAcss extends AbstractUtopiaPersiste
 
 
 	/** default constructor */
-	public AbstractCoRoleSubsystemAcss() {
+	public CoRoleSubsystemAcss() {
 	}
 	@ManyToOne
 	@JoinColumn(name = "CO_ROLE_ID", unique = false, nullable = false, insertable = true, updatable = true)
