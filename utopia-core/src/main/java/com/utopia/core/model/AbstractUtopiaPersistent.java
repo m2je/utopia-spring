@@ -18,9 +18,9 @@ public abstract class AbstractUtopiaPersistent extends SoftDeletePersistentSuppo
 	 */
 	private static final long serialVersionUID = -5376839244673906173L;
 	private Date created;
-	private CoUser createdby;
+	private User createdby;
 	private Date updated;
-	private CoUser updatedby;
+	private User updatedby;
 	
 //************************************************************************************************	
 	public AbstractUtopiaPersistent(){
@@ -38,11 +38,11 @@ public abstract class AbstractUtopiaPersistent extends SoftDeletePersistentSuppo
 //************************************************************************************************
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name = "CREATEDBY", unique = false, nullable = false, insertable = true, updatable = true)
-	public CoUser getCreatedby() {
+	public User getCreatedby() {
 		return this.createdby;
 	}
 //************************************************************************************************
-	public void setCreatedby(CoUser createdby) {
+	public void setCreatedby(User createdby) {
 		this.createdby = createdby;
 	}
 //***********************************************************************************************
@@ -58,11 +58,11 @@ public abstract class AbstractUtopiaPersistent extends SoftDeletePersistentSuppo
 //************************************************************************************************
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name = "UPDATEDBY", unique = false, nullable = false, insertable = true, updatable = true)
-	public CoUser getUpdatedby() {
+	public User getUpdatedby() {
 		return this.updatedby;
 	}
 //************************************************************************************************
-	public void setUpdatedby(CoUser updatedby) {
+	public void setUpdatedby(User updatedby) {
 		this.updatedby = updatedby;
 	}
 	

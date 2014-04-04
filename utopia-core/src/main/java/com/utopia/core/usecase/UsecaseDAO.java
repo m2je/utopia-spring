@@ -7,15 +7,15 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import com.utopia.core.dao.UtopiaDAO;
-import com.utopia.core.model.CoUsecase;
+import com.utopia.core.model.Usecase;
 
-public interface UsecaseDAO extends UtopiaDAO,JpaRepository<CoUsecase, Long> {
+public interface UsecaseDAO extends UtopiaDAO,JpaRepository<Usecase, Long> {
 
-	@Query("SELECT CoUsecase FROM CoUsecase CoUsecase WHERE CoUsecase.deleted=FALSE")
-	public List<CoUsecase> findUsecases();
+	@Query("SELECT Usecase FROM Usecase Usecase WHERE Usecase.deleted=FALSE")
+	public List<Usecase> findUsecases();
 	
-	@Query("SELECT CoUsecase FROM CoUsecase CoUsecase WHERE CoUsecase.deleted=FALSE AND CoUsecase.name=:usecaseName"
-			+" AND (CoUsecase.cmSubsystem.name=:subSystemName OR CoUsecase.cmSubsystem.abbreviation=:subSystemName) AND CoUsecase.cmSubsystem.deleted=FALSE  "
-			+" AND (CoUsecase.cmSubsystem.cmSystem.name=:systemName OR CoUsecase.cmSubsystem.abbreviation=:systemName )AND CoUsecase.cmSubsystem.cmSystem.deleted=FALSE")
-	public CoUsecase findUsecase(@Param("systemName") String systemName,@Param("subSystemName") String subSystemName,@Param("usecaseName") String usecaseName);
+	@Query("SELECT Usecase FROM Usecase Usecase WHERE Usecase.deleted=FALSE AND Usecase.name=:usecaseName"
+			+" AND (Usecase.subsystem.name=:subSystemName OR Usecase.subsystem.abbreviation=:subSystemName) AND Usecase.subsystem.deleted=FALSE  "
+			+" AND (Usecase.subsystem.system.name=:systemName OR Usecase.subsystem.abbreviation=:systemName )AND Usecase.subsystem.system.deleted=FALSE")
+	public Usecase findUsecase(@Param("systemName") String systemName,@Param("subSystemName") String subSystemName,@Param("usecaseName") String usecaseName);
 }

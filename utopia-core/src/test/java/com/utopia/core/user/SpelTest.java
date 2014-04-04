@@ -9,13 +9,13 @@ import org.springframework.expression.ExpressionParser;
 import org.springframework.expression.spel.standard.SpelExpressionParser;
 import org.springframework.expression.spel.support.StandardEvaluationContext;
 
-import com.utopia.core.model.CoUser;
+import com.utopia.core.model.User;
 
 public class SpelTest {
 
 	@Test
 	public void parse(){
-		CoUser user=new CoUser();
+		User user=new User();
 		user.setUsername("admin");
 		String logic="username==null OR 1==1";
 		ExpressionParser parser = new SpelExpressionParser();

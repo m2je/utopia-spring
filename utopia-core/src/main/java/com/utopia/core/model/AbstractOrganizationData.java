@@ -5,7 +5,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
 
-import com.utopia.common.model.CmOrganization;
+import com.utopia.common.model.Organization;
 
 @MappedSuperclass
 public class AbstractOrganizationData extends AbstractUtopiaPersistent implements OrganizationData {
@@ -15,19 +15,19 @@ public class AbstractOrganizationData extends AbstractUtopiaPersistent implement
 	 * 
 	 */
 	private static final long serialVersionUID = 6381499175807559534L;
-	private CmOrganization cmOrganization;
+	private Organization organization;
 	
 	@Override
-	public void setCmOrganization(CmOrganization cmOrganization) {
-		this.cmOrganization=cmOrganization;
+	public void setOrganization(Organization organization) {
+		this.organization=organization;
 		
 	}
 
 	@Override
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name = "CM_ORGANIZATION_ID", unique = false, nullable = false, insertable = true, updatable = true)
-	public CmOrganization getCmOrganization() {
-		return cmOrganization;
+	public Organization getOrganization() {
+		return organization;
 	}
 
 }

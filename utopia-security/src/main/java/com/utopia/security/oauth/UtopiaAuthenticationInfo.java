@@ -5,7 +5,7 @@ import java.util.Collection;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 
-import com.utopia.core.model.CoUser;
+import com.utopia.core.model.User;
 
 public class UtopiaAuthenticationInfo implements Authentication{
 
@@ -14,11 +14,11 @@ public class UtopiaAuthenticationInfo implements Authentication{
 	 */
 	private static final long serialVersionUID = 8986679846716261685L;
 
-	private CoUser user;
+	private User user;
 	private Collection<? extends GrantedAuthority> authorities;
 	private Authentication details;
 	private boolean authenticated=true;
-	public UtopiaAuthenticationInfo(CoUser user,Collection<? extends GrantedAuthority> authorities,Authentication details){
+	public UtopiaAuthenticationInfo(User user,Collection<? extends GrantedAuthority> authorities,Authentication details){
 		this.user=user;
 		this.authorities=authorities;
 		this.details=details;
@@ -60,7 +60,7 @@ public class UtopiaAuthenticationInfo implements Authentication{
 		
 	}
 
-	public CoUser getUser(){
+	public User getUser(){
 		return user;
 	}
 }

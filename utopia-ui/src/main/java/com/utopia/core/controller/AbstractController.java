@@ -1,16 +1,16 @@
 package com.utopia.core.controller;
 
-import com.utopia.core.model.CoApplication;
-import com.utopia.core.model.CoUser;
+import com.utopia.core.model.Application;
+import com.utopia.core.model.User;
 
 public abstract class AbstractController {
 
-	protected CoUser getCurrentUser(){
-		return new CoUser();
+	protected User getCurrentUser(){
+		return new User();
 	}
 	
-	protected CoApplication getCurrentApplication(){
-		return new CoApplication();
+	protected Application getCurrentApplication(){
+		return new Application();
 	}
 	
 	

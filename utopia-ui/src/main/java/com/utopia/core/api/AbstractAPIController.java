@@ -11,8 +11,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 
-import com.utopia.core.model.CoUsecase;
-import com.utopia.core.model.CoUser;
+import com.utopia.core.model.Usecase;
+import com.utopia.core.model.User;
 import com.utopia.core.usecase.UsecaseService;
 import com.utopia.security.oauth.UtopiaAuthenticationInfo;
 
@@ -24,7 +24,7 @@ public abstract class AbstractAPIController {
 	private UsecaseService service;
 	@InitBinder 
     protected void initBinder(WebDataBinder binder) throws Exception {
-        binder.registerCustomEditor(CoUsecase.class, new PropertyEditorSupport(){
+        binder.registerCustomEditor(Usecase.class, new PropertyEditorSupport(){
 			@Override
 			public void setAsText(String text) throws IllegalArgumentException {
 				if(text!=null&&text.trim().length()>0){
@@ -55,7 +55,7 @@ public abstract class AbstractAPIController {
 		}
 		return null;
 	}
-	protected CoUser getCurrentUser(){
+	protected User getCurrentUser(){
 		UtopiaAuthenticationInfo info= (UtopiaAuthenticationInfo)SecurityContextHolder.getContext().getAuthentication();
 		return info.getUser();
 	}

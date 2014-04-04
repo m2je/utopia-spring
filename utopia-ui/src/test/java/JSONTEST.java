@@ -12,7 +12,7 @@ public class JSONTEST {
 //		t2.setTest("mmm");
 //		t.setT2(t2);
 //		System.out.println(mapper.writeValueAsString(t));
-		String input="CoSeUser";
+		String input="User";
 		String pattern="([A-Z][a-z])([A-Z][a-z])([A-Z][a-zA-Z]+)";
 		System.out.println(input.matches(pattern));
 		Pattern p=Pattern.compile(pattern);

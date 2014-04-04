@@ -17,13 +17,13 @@ import org.springframework.security.oauth2.common.util.SerializationUtils;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 
-import com.utopia.core.model.CoAppRefreshToken;
-import com.utopia.core.model.CoApplication;
-import com.utopia.core.model.CoUser;
-import com.utopia.core.model.CoUserAppToken;
-import com.utopia.core.security.dao.CoAppRefreshTokenDAO;
-import com.utopia.core.security.dao.CoApplicationDAO;
-import com.utopia.core.security.dao.CoUserAppTokenDAO;
+import com.utopia.core.model.AppRefreshToken;
+import com.utopia.core.model.Application;
+import com.utopia.core.model.User;
+import com.utopia.core.model.UserAppToken;
+import com.utopia.core.security.dao.AppRefreshTokenDAO;
+import com.utopia.core.security.dao.ApplicationDAO;
+import com.utopia.core.security.dao.UserAppTokenDAO;
 import com.utopia.core.util.TimeService;
 
 public class UtopiaTokenStore implements TokenStore {
@@ -32,13 +32,13 @@ public class UtopiaTokenStore implements TokenStore {
     private long accessTokenValidity;
 	
 	@Resource
-	private CoUserAppTokenDAO coUserAppTokenDAO;
+	private UserAppTokenDAO userAppTokenDAO;
 	
 	@Resource
-	private CoApplicationDAO applicationDAO;
+	private ApplicationDAO applicationDAO;
 	
 	@Resource
-	private CoAppRefreshTokenDAO coAppRefreshTokenDAO;
+	private AppRefreshTokenDAO appRefreshTokenDAO;
 	
 	@Resource
 	private TimeService timeService;
@@ -52,7 +52,7 @@ public class UtopiaTokenStore implements TokenStore {
 //********************************************************************************************************************************************
 	@Override
 	public OAuth2Authentication readAuthentication(String token) {
-		CoUserAppToken result= coUserAppTokenDAO.findByToken(token);
+		UserAppToken result= userAppTokenDAO.findByToken(token);
 		return result==null?null:deserializeAuthentication(result.getAuthentication());
 	}
 //********************************************************************************************************************************************
@@ -60,11 +60,11 @@ public class UtopiaTokenStore implements TokenStore {
 	public void storeAccessToken(OAuth2AccessToken token,
 			OAuth2Authentication authentication) {
 		
-		CoUserAppToken ptoken=new CoUserAppToken();
-		CoUser user=new CoUser();
+		UserAppToken ptoken=new UserAppToken();
+		User user=new User();
 		user.setId(getUserId(authentication));
-		ptoken.setCoUser(user);
-		ptoken.setCoApplication(getApplication(authentication));
+		ptoken.setUser(user);
+		ptoken.setApplication(getApplication(authentication));
 		ptoken.setToken(token.getValue());
 		ptoken.setRefreshToken(token.getRefreshToken().getValue());
 		ptoken.setValidTo(token.getExpiration());
@@ -76,59 +76,59 @@ public class UtopiaTokenStore implements TokenStore {
 		validTo.setTime(currentDate);
 		
 //		ptoken.setValidTo(validTo);
-		coUserAppTokenDAO.save(ptoken);
+		userAppTokenDAO.save(ptoken);
 	}	
 //********************************************************************************************************************************************
 	@Override
 	public OAuth2AccessToken readAccessToken(String tokenValue) {
-		return convertCoApplicationToken2OAuth2AccessToken(coUserAppTokenDAO.findByToken(tokenValue));
+		return convertApplicationToken2OAuth2AccessToken(userAppTokenDAO.findByToken(tokenValue));
 	}
 //********************************************************************************************************************************************
 	@Override
 	public void removeAccessToken(OAuth2AccessToken token) {
-		coUserAppTokenDAO.deleteToken(token.getValue());
+		userAppTokenDAO.deleteToken(token.getValue());
 	}
 //********************************************************************************************************************************************
 	@Override
 	public void storeRefreshToken(OAuth2RefreshToken refreshToken,
 			OAuth2Authentication authentication) {
-		CoAppRefreshToken refToken=new CoAppRefreshToken();
-		refToken.setCoApplication( getApplication(authentication));
-		CoUser user=new CoUser();
+		AppRefreshToken refToken=new AppRefreshToken();
+		refToken.setApplication( getApplication(authentication));
+		User user=new User();
 		user.setId(getUserId(authentication));
-		refToken.setCoUser(user);
+		refToken.setUser(user);
 		refToken.setRefreshToken(refreshToken.getValue());
-		coAppRefreshTokenDAO.save(refToken);
+		appRefreshTokenDAO.save(refToken);
 	}
 //********************************************************************************************************************************************
 	@Override
 	public OAuth2RefreshToken readRefreshToken(String tokenValue) {
-		CoAppRefreshToken token=coAppRefreshTokenDAO.findByToken(tokenValue);
+		AppRefreshToken token=appRefreshTokenDAO.findByToken(tokenValue);
 		return token==null?null:new DefaultOAuth2RefreshToken(token.getRefreshToken() );
 	}
 //********************************************************************************************************************************************
 	@Override
 	public OAuth2Authentication readAuthenticationForRefreshToken(
 			OAuth2RefreshToken token) {
-		CoAppRefreshToken refToken=coAppRefreshTokenDAO.findByToken(token.getValue());
+		AppRefreshToken refToken=appRefreshTokenDAO.findByToken(token.getValue());
 		return deserializeAuthentication(refToken.getAuthentication());
 	}
 //********************************************************************************************************************************************
 	@Override
 	public void removeRefreshToken(OAuth2RefreshToken token) {
-		coAppRefreshTokenDAO.deleteByToken(token.getValue());
+		appRefreshTokenDAO.deleteByToken(token.getValue());
 		
 	}
 //********************************************************************************************************************************************
 	@Override
 	public void removeAccessTokenUsingRefreshToken(
 			OAuth2RefreshToken refreshToken) {
-		coUserAppTokenDAO.deleteTokenByRefreshToken(refreshToken.getValue());
+		userAppTokenDAO.deleteTokenByRefreshToken(refreshToken.getValue());
 	}
 //********************************************************************************************************************************************
 	@Override
 	public OAuth2AccessToken getAccessToken(OAuth2Authentication authentication) {
-		CoUserAppToken token= coUserAppTokenDAO.findByUserApplication(getUserId(authentication), 
+		UserAppToken token= userAppTokenDAO.findByUserApplication(getUserId(authentication), 
 				getApplicationName(authentication));
 		return token==null?null:new DefaultOAuth2AccessToken(token.getToken());
 	}
@@ -139,9 +139,9 @@ public class UtopiaTokenStore implements TokenStore {
 		if(userName.indexOf("@")>0){
 			String []usernameAndDomain=userName.split("@");
 			if(usernameAndDomain.length==2){
-				List<CoUserAppToken>tokens= coUserAppTokenDAO.findTokensForUser(usernameAndDomain[0], usernameAndDomain[1]);
-				for(CoUserAppToken token:tokens){
-					result.add(convertCoApplicationToken2OAuth2AccessToken(token));	
+				List<UserAppToken>tokens= userAppTokenDAO.findTokensForUser(usernameAndDomain[0], usernameAndDomain[1]);
+				for(UserAppToken token:tokens){
+					result.add(convertApplicationToken2OAuth2AccessToken(token));	
 				}
 			}
 		}
@@ -151,9 +151,9 @@ public class UtopiaTokenStore implements TokenStore {
 	@Override
 	public Collection<OAuth2AccessToken> findTokensByClientId(String clientId) {
 		ArrayList<OAuth2AccessToken>result=new ArrayList<OAuth2AccessToken>();
-		List<CoUserAppToken>tokens= coUserAppTokenDAO.findApplicationTokens(clientId);
-		for(CoUserAppToken token:tokens){
-			result.add(convertCoApplicationToken2OAuth2AccessToken(token));	
+		List<UserAppToken>tokens= userAppTokenDAO.findApplicationTokens(clientId);
+		for(UserAppToken token:tokens){
+			result.add(convertApplicationToken2OAuth2AccessToken(token));	
 		}
 		return result;
 	}
@@ -166,11 +166,11 @@ public class UtopiaTokenStore implements TokenStore {
 		return authentication.getAuthorizationRequest().getClientId();
 	}
 //********************************************************************************************************************************************
-	protected CoApplication getApplication(OAuth2Authentication authentication){
+	protected Application getApplication(OAuth2Authentication authentication){
 		return applicationDAO.findApplicationWithName(getApplicationName(authentication));
 	}
 //********************************************************************************************************************************************
-	protected OAuth2AccessToken convertCoApplicationToken2OAuth2AccessToken(CoUserAppToken appToken){
+	protected OAuth2AccessToken convertApplicationToken2OAuth2AccessToken(UserAppToken appToken){
 		if(appToken==null)return null;
 		DefaultOAuth2AccessToken result=new DefaultOAuth2AccessToken(appToken.getToken());
 		result.setExpiration(appToken.getValidTo());

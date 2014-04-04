@@ -20,7 +20,7 @@ public class AttachmentListener {
 //		try {
 //			Class<?> remoteClass =BeanUtil.findRemoteClassFromPersistent(p.getClass());
 //			UseCase usecase= UsecaseUtil.getUseCase(remoteClass.getName());
-//			CoAttachmentFacadeRemote attachmentFacase=(CoAttachmentFacadeRemote)ServiceFactory.lookupFacade(CoAttachmentFacadeRemote.class);
+//			AttachmentFacadeRemote attachmentFacase=(AttachmentFacadeRemote)ServiceFactory.lookupFacade(CoAttachmentFacadeRemote.class);
 //			attachmentFacase.deleteAttachments(usecase.getUsecaseId(), null, p.getRecordId());
 //		} catch (Throwable e) {
 //			logger.log(Level.WARNING,"fail to find and delete attachment of class:"+p.getClass()+" and recordId:"+p.getRecordId(),e);

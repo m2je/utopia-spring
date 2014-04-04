@@ -11,21 +11,21 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.oauth2.provider.ClientDetails;
 
-import com.utopia.core.model.CoApplication;
+import com.utopia.core.model.Application;
 
 public class Client implements ClientDetails{
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 3039113289905837972L;
-	private CoApplication application;
+	private Application application;
 	private Map<String,Object>additionalInformations;
 	private List<GrantedAuthority> authorities;
 	private HashSet<String>resourceIds;
-	public Client(CoApplication application){
+	public Client(Application application){
 		this(application, null);
 	}
-	public Client(CoApplication application,Map<String,Object>additionalInformations){
+	public Client(Application application,Map<String,Object>additionalInformations){
 		this.application=application;
 		this.authorities=AuthorityUtils.createAuthorityList("USER_ROLE","client_credentials","password","refresh_token");
 		this.resourceIds=new HashSet<String>();

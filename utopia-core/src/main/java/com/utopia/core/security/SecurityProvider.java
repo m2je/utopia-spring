@@ -7,8 +7,8 @@ import java.util.Set;
 import javax.interceptor.InvocationContext;
 import javax.security.auth.Subject;
 
-import com.utopia.common.model.CmSubsystem;
-import com.utopia.common.model.CmSystem;
+import com.utopia.common.model.Subsystem;
+import com.utopia.common.model.System;
 import com.utopia.core.exception.OrganizationAccessException;
 import com.utopia.core.security.exception.NotAuthenticatedException;
 import com.utopia.core.security.exception.NotAuthorizedActionException;
@@ -68,19 +68,19 @@ public interface SecurityProvider {
 	 * @param subject
 	 * @return
 	 */
-	public CmSystem[] getAccessibleSystems(Subject subject);
+	public System[] getAccessibleSystems(Subject subject);
 	/**
 	 * returns a list of accessible menus and subSytem menus related to user
 	 * @param subject
 	 * @return
 	 */
-//	public Collection<? extends CoSystemMenu> getAccessibleMenus(Subject subject);
+//	public Collection<? extends SystemMenu> getAccessibleMenus(Subject subject);
 	/**
 	 * returns a list of subSystem available for Subject
 	 * @param subject
 	 * @return
 	 */
-	public CmSubsystem[] getAccessibleSubSystems(Subject subject);
+	public Subsystem[] getAccessibleSubSystems(Subject subject);
 	/**
 	 * return userId of the subject
 	 * @param user

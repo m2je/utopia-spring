@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.utopia.core.model.CoUsecase;
+import com.utopia.core.model.Usecase;
 import com.utopia.core.usecase.UsecaseService;
 
 @Controller
@@ -19,7 +19,7 @@ public class GeneralController extends AbstractAPIController{
 	private UsecaseService usecaseService;
 	@RequestMapping(value="/{usecase}",method=RequestMethod.GET)
 	@ResponseBody
-	public  CoUsecase  usecases(@PathVariable CoUsecase usecase){
+	public  Usecase  usecases(@PathVariable Usecase usecase){
 		
 		return null;
 	}

@@ -7,13 +7,17 @@ public abstract class SoftDeletePersistentSupport extends AbstractBasicPersisten
 
 	protected boolean deleted;
 	
-	//************************************************************************************************
 	
+	/**
+	 * 
+	 */
 	@Column(name = "DELETED", unique = false, nullable = false, insertable = true, updatable = true, precision = 1, scale = 0)
 	public boolean isDeleted() {
 		return this.deleted;
 	}
-//************************************************************************************************
+	/**
+	 * 
+	 */
 	public void setDeleted(boolean deleted) {
 		this.deleted = deleted;
 	}

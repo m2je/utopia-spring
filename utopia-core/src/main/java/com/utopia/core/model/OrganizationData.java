@@ -1,6 +1,6 @@
 package com.utopia.core.model;
 
-import com.utopia.common.model.CmOrganization;
+import com.utopia.common.model.Organization;
 
 
 public interface OrganizationData extends UtopiaBasicPersistent {
@@ -8,10 +8,10 @@ public interface OrganizationData extends UtopiaBasicPersistent {
 	 * 
 	 * @param organization
 	 */
-	public void setCmOrganization(CmOrganization organization);
+	public void setOrganization(Organization organization);
 	/**
 	 * 
 	 * @return
 	 */
-	public CmOrganization getCmOrganization();
+	public Organization getOrganization();
 }

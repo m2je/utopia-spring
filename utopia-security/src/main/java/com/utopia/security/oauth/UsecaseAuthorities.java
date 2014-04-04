@@ -2,7 +2,7 @@ package com.utopia.security.oauth;
 
 import org.springframework.security.core.GrantedAuthority;
 
-import com.utopia.core.model.CoUsecase;
+import com.utopia.core.model.Usecase;
 /**
  * the authority base on system use cases
  * @author Mehdi
@@ -17,7 +17,7 @@ public class UsecaseAuthorities implements GrantedAuthority {
 	private String useCase;
 	private Long useCaseId;
 	
-	public UsecaseAuthorities(CoUsecase useCase){
+	public UsecaseAuthorities(Usecase useCase){
 		this.useCase=useCase.getFullName();
 		this.useCaseId=useCase.getId();
 	}

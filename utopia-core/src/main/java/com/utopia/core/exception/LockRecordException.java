@@ -1,6 +1,6 @@
 package com.utopia.core.exception;
 
-import com.utopia.core.model.CoUser;
+import com.utopia.core.model.User;
 
 public class LockRecordException extends CoreException {
 
@@ -9,7 +9,7 @@ public class LockRecordException extends CoreException {
 	 */
 	private static final long serialVersionUID = 4020187217154894980L;
 
-	CoUser lockedUser;
+	User lockedUser;
 	public LockRecordException() {
 	}
 
@@ -25,11 +25,11 @@ public class LockRecordException extends CoreException {
 		super(cause);
 	}
 
-	public CoUser getLockedUser() {
+	public User getLockedUser() {
 		return lockedUser;
 	}
 
-	public void setLockedUser(CoUser lockedUser) {
+	public void setLockedUser(User lockedUser) {
 		this.lockedUser = lockedUser;
 	}
 

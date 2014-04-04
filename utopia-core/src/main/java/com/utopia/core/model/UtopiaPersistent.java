@@ -19,16 +19,16 @@ public interface UtopiaPersistent  extends SoftDeletePersistent{
 //************************************************************************************************
 	public void setCreated(Date created) ;
 //************************************************************************************************
-	public CoUser getCreatedby() ;
+	public User getCreatedby() ;
 //************************************************************************************************
-	public void setCreatedby(CoUser createdby) ;
+	public void setCreatedby(User createdby) ;
 //***********************************************************************************************
 	public Date getUpdated() ;
 //************************************************************************************************
 	public void setUpdated(Date updated) ;
 //************************************************************************************************
-	public CoUser getUpdatedby() ;
+	public User getUpdatedby() ;
 //************************************************************************************************
-	public void setUpdatedby(CoUser updatedby); 
+	public void setUpdatedby(User updatedby); 
 //************************************************************************************************
 }

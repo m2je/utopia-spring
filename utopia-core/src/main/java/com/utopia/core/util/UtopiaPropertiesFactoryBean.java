@@ -15,7 +15,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.config.AbstractFactoryBean;
 import org.springframework.stereotype.Service;
 
-import com.utopia.core.model.CoSettings;
+import com.utopia.core.model.Settings;
 @Service
 public class UtopiaPropertiesFactoryBean extends  AbstractFactoryBean<Properties>{
 	private static Logger logger=Logger.getLogger(UtopiaPropertiesFactoryBean.class);
@@ -51,9 +51,9 @@ public class UtopiaPropertiesFactoryBean extends  AbstractFactoryBean<Properties
 	@Override
 	protected Properties createInstance() throws Exception {
 		final Properties result=new Properties();
-		List<CoSettings>settings= entityManager.createQuery("SELECT CoSettings FROM CoSettings CoSettings WHERE CoSettings.cmSystem.name IN (:systemNames)").
+		List<Settings>settings= entityManager.createQuery("SELECT Settings FROM Settings Settings WHERE Settings.system.name IN (:systemNames)").
 		 setParameter("systemNames", systemNames).getResultList();
-		for(CoSettings setting:settings){
+		for(Settings setting:settings){
 			result.put(setting.getKey(), setting.getValue());
 		}
 		for(String propertyFile:extendedProperties){

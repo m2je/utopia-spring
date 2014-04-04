@@ -28,7 +28,7 @@ import com.utopia.core.lookup.DetailPersistentValueInfo;
 import com.utopia.core.lookup.LookupInfo;
 
 @MappedSuperclass
-@EntityListeners({AttachmentListener.class,CustomPropertyListener.class})
+@EntityListeners({AttachmentListener.class})
 @TypeDef(
 	    name="encryptedString", 
 	    typeClass=EncryptedStringType.class, 

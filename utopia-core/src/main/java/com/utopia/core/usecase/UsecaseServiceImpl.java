@@ -6,7 +6,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Component;
 
-import com.utopia.core.model.CoUsecase;
+import com.utopia.core.model.Usecase;
 import com.utopia.core.service.AbstractUtopiaService;
 @Component
 public class UsecaseServiceImpl extends AbstractUtopiaService implements UsecaseService{
@@ -14,16 +14,16 @@ public class UsecaseServiceImpl extends AbstractUtopiaService implements Usecase
 	@Resource
 	private UsecaseDAO DAO;
 	
-	public List<CoUsecase> findAllUsecases(){
+	public List<Usecase> findAllUsecases(){
 		return DAO.findUsecases();
 	}
 
 	@Override
-	public CoUsecase findById(Long id) {
+	public Usecase findById(Long id) {
 		return DAO.findOne(id);
 	}
 	
-	public CoUsecase findUsecase(String systemName,String subSystemName,String usecaseName){
+	public Usecase findUsecase(String systemName,String subSystemName,String usecaseName){
 		return DAO.findUsecase(systemName, subSystemName, usecaseName);
 	}
 
@@ -34,7 +34,7 @@ public class UsecaseServiceImpl extends AbstractUtopiaService implements Usecase
 	}
 
 	@Override
-	public CoUsecase findUsecase(String usecaseName) {
+	public Usecase findUsecase(String usecaseName) {
 		// TODO Auto-generated method stub
 		return null;
 	}
