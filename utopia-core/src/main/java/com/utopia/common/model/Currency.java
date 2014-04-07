@@ -11,7 +11,6 @@ import com.utopia.core.model.AbstractUtopiaPersistent;
  * 
  * @author Mehdi
  */
-@MappedSuperclass
 @Entity
 @Table(name = "CM_CURRENCY", uniqueConstraints = {})
 public  class Currency extends AbstractUtopiaPersistent implements java.io.Serializable {
