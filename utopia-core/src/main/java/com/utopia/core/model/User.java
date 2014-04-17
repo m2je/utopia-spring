@@ -4,7 +4,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -49,7 +48,7 @@ public  class User extends AbstractOrganizationData implements java.io.Serializa
 	private Portal portal;
 	private Set<UsrUscsActnAccs> usrUscsActnAccses = new HashSet<UsrUscsActnAccs>(
 			0);
-	private Set<UserRoles> userRoleses = new HashSet<UserRoles>(0);
+	private Set<UserRoles> userRoles;
 	
 	// Constructors
 
@@ -106,14 +105,14 @@ public  class User extends AbstractOrganizationData implements java.io.Serializa
 		this.usrUscsActnAccses = usrUscsActnAccses;
 	}
 
-	@OneToMany( fetch = FetchType.LAZY, mappedBy = "user",cascade=CascadeType.ALL)
+	@OneToMany( fetch = FetchType.LAZY, mappedBy = "user")
 	@OrderBy
-	public Set<UserRoles> getUserRoleses() {
-		return this.userRoleses;
+	public Set<UserRoles> getUserRoles() {
+		return this.userRoles;
 	}
 
-	public void setUserRoleses(Set<UserRoles> userRoleses) {
-		this.userRoleses = userRoleses;
+	public void setUserRoles(Set<UserRoles> userRoles) {
+		this.userRoles = userRoles;
 	}
 
 	@ManyToOne(fetch=FetchType.LAZY)

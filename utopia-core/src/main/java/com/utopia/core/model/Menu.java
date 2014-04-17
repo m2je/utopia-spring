@@ -25,7 +25,7 @@ import com.utopia.core.model.annotations.LookupConfiguration;
 @Entity
 @Table(name = "CO_MENU", uniqueConstraints = {})
 @EntityListeners(com.utopia.core.model.MenuListener.class)
-public  class Menu extends AbstractUtopiaPersistent implements java.io.Serializable {
+public  class Menu extends AbstractUtopiaSoftDelete implements java.io.Serializable {
 
 	// Fields
 

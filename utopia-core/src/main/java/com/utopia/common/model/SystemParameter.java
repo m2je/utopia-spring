@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
-import com.utopia.core.model.AbstractUtopiaPersistent;
+import com.utopia.core.model.AbstractUtopiaSoftDelete;
 
 /**
  * AbstractSystemParameter 
@@ -20,7 +20,7 @@ import com.utopia.core.model.AbstractUtopiaPersistent;
 @Entity
 @Table(name = "CM_SYSTEM_PARAMETER",  uniqueConstraints = { @UniqueConstraint(columnNames = {
 		"CM_SYSTEM_ID", "KEY" }) })
-public class SystemParameter extends AbstractUtopiaPersistent implements java.io.Serializable {
+public class SystemParameter extends AbstractUtopiaSoftDelete implements java.io.Serializable {
 
 	// Fields
 

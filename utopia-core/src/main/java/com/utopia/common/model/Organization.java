@@ -11,14 +11,14 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.utopia.core.model.AbstractUtopiaPersistent;
+import com.utopia.core.model.AbstractUtopiaSoftDelete;
 import com.utopia.core.model.annotations.LookupConfiguration;
 
 
 @Entity
 @Table(name = "CM_ORGANIZATION",  uniqueConstraints = { /*@UniqueConstraint(columnNames = { "NAME","PARENT_ID" })*/ })
 @LookupConfiguration(displayColumns={"code","name"},displayItemSeperator=" - ",descriptionColumnName="description")
-public  class Organization extends AbstractUtopiaPersistent implements java.io.Serializable {
+public  class Organization extends AbstractUtopiaSoftDelete implements java.io.Serializable {
 
 	// Fields
 

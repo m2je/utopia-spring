@@ -19,7 +19,7 @@ import javax.persistence.UniqueConstraint;
  */
 @Entity
 @Table(name = "CO_ROLE",  uniqueConstraints = { @UniqueConstraint(columnNames = { "NAME" }) })
-public  class Role extends AbstractUtopiaPersistent implements java.io.Serializable {
+public  class Role extends AbstractUtopiaSoftDelete implements java.io.Serializable {
 
 	// Fields
 
@@ -29,7 +29,7 @@ public  class Role extends AbstractUtopiaPersistent implements java.io.Serializa
 	private static final long serialVersionUID = -7000866511878044342L;
 	private String name;
 	
-	private Set<UserRoles> userRoleses = new HashSet<UserRoles>(0);
+	private Set<UserRoles> userRoles = new HashSet<UserRoles>(0);
 	private Set<RoleUscsActnAccs> roleUscsActnAccses = new HashSet<RoleUscsActnAccs>(
 			0);
 
@@ -53,12 +53,12 @@ public  class Role extends AbstractUtopiaPersistent implements java.io.Serializa
 	}
 
 	@OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.LAZY, mappedBy = "role")
-	public Set<UserRoles> getUserRoleses() {
-		return this.userRoleses;
+	public Set<UserRoles> getUserRoles() {
+		return this.userRoles;
 	}
 
-	public void setUserRoleses(Set<UserRoles> userRoleses) {
-		this.userRoleses = userRoleses;
+	public void setUserRoles(Set<UserRoles> userRoles) {
+		this.userRoles = userRoles;
 	}
 
 	@OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.LAZY, mappedBy = "role")

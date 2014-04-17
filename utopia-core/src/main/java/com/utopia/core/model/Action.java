@@ -16,7 +16,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "CO_ACTION",  uniqueConstraints = {})
-public class Action extends AbstractUtopiaPersistent implements java.io.Serializable {
+public class Action extends AbstractUtopiaSoftDelete implements java.io.Serializable {
 
 	// Fields
 

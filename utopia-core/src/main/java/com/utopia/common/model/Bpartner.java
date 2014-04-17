@@ -8,7 +8,7 @@ import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.utopia.core.model.AbstractUtopiaPersistent;
+import com.utopia.core.model.AbstractUtopiaSoftDelete;
 
 /**
  * 
@@ -16,7 +16,7 @@ import com.utopia.core.model.AbstractUtopiaPersistent;
  */
 @Entity
 @Table(name = "CM_BPARTNER")
-public  class Bpartner extends AbstractUtopiaPersistent implements java.io.Serializable {
+public  class Bpartner extends AbstractUtopiaSoftDelete implements java.io.Serializable {
 
 	// Fields
 

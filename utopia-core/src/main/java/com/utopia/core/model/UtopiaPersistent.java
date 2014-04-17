@@ -9,7 +9,7 @@ import java.util.Date;
  * @author salarkia
  *
  */
-public interface UtopiaPersistent  extends SoftDeletePersistent{
+public interface UtopiaPersistent  extends UtopiaBasicPersistent{
 	public String CODE_FIELD_NAME = "code"; 
 	public String NAME_FIELD_NAME = "name"; 
 	

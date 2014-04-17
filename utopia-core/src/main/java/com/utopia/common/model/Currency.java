@@ -2,10 +2,9 @@ package com.utopia.common.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
 
-import com.utopia.core.model.AbstractUtopiaPersistent;
+import com.utopia.core.model.AbstractUtopiaSoftDelete;
 
 /**
  * 
@@ -13,7 +12,7 @@ import com.utopia.core.model.AbstractUtopiaPersistent;
  */
 @Entity
 @Table(name = "CM_CURRENCY", uniqueConstraints = {})
-public  class Currency extends AbstractUtopiaPersistent implements java.io.Serializable {
+public  class Currency extends AbstractUtopiaSoftDelete implements java.io.Serializable {
 
 
 	/**

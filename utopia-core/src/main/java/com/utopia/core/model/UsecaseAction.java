@@ -20,7 +20,7 @@ import com.utopia.core.model.annotations.LookupConfiguration;
 @Entity
 @Table(name = "CO_USECASE_ACTION", uniqueConstraints = {})
 @LookupConfiguration(displayColumns={"action.name","usecase.name"},displayItemSeperator="-")
-public  class UsecaseAction extends AbstractUtopiaPersistent implements java.io.Serializable {
+public  class UsecaseAction extends AbstractUtopiaSoftDelete implements java.io.Serializable {
 
 	// Fields
 

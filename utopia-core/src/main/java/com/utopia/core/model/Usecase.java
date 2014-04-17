@@ -21,7 +21,7 @@ import com.utopia.common.model.Subsystem;
  */
 @Entity
 @Table(name = "CO_USECASE",  uniqueConstraints = {})
-public  class Usecase extends AbstractUtopiaPersistent implements java.io.Serializable {
+public  class Usecase extends AbstractUtopiaSoftDelete implements java.io.Serializable {
 
 	// Fields
 

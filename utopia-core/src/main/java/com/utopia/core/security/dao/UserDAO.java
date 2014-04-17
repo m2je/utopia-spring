@@ -8,7 +8,7 @@ import com.utopia.core.model.User;
 
 public interface UserDAO extends JpaRepository<User, Long>{
 
-	@Query("SELECT User FROM User User JOIN FETCH User.portal Portal JOIN FETCH User.userRoleses roles"
+	@Query("SELECT User FROM User User JOIN FETCH User.portal Portal LEFT JOIN FETCH User.userRoles roles"
 			+ " WHERE User.username=:username AND Portal.domainName=:domainName AND Portal.deleted=FALSE AND User.deleted=FALSE ")
 	public User findByUsername(@Param("username") String username ,@Param("domainName") String domainName);
 }

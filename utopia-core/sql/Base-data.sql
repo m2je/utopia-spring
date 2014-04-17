@@ -8,6 +8,7 @@ INSERT INTO cm_bpartner
 VALUES(0,0,'0','system','system',0,0);
 INSERT INTO co_user(`ID`,`USERNAME`,`PASSWORD`,`CREATEDBY`,`UPDATEDBY`,`CM_BPARTNER_ID`,`CO_PORTAL_ID`)
 VALUES(0,'system','s1st3m',0,0,0,0);
+INSERT INTO CO_APPLICATION(name,secret_key,createdby,updatedby,token_validity,scope) VALUES('DefaultUI','&^!G#W*t00',0,0,2147483647,'READ,WRITE');
 ---------------------------------------- CO_SEQUENCE ------------------------------------------
 INSERT INTO CO_SEQUENCE(ID,TABLE_NAME,CURRENT_ID) VALUES(1,'CM_BPARTNER',1000);
 INSERT INTO CO_SEQUENCE(ID,TABLE_NAME,CURRENT_ID) VALUES(2,'CM_CITY',1000);

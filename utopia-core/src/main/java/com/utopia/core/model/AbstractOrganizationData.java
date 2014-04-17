@@ -8,7 +8,7 @@ import javax.persistence.MappedSuperclass;
 import com.utopia.common.model.Organization;
 
 @MappedSuperclass
-public class AbstractOrganizationData extends AbstractUtopiaPersistent implements OrganizationData {
+public class AbstractOrganizationData extends AbstractUtopiaSoftDelete implements OrganizationData {
 
 	
 	/**

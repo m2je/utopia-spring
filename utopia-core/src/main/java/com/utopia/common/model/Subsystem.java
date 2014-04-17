@@ -7,7 +7,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
-import com.utopia.core.model.AbstractUtopiaPersistent;
+import com.utopia.core.model.AbstractUtopiaSoftDelete;
 import com.utopia.core.model.annotations.LookupConfiguration;
 
 /**
@@ -17,7 +17,7 @@ import com.utopia.core.model.annotations.LookupConfiguration;
 @Entity
 @Table(name = "CM_SUBSYSTEM",  uniqueConstraints = { @UniqueConstraint(columnNames = { "NAME" }) })
 	@LookupConfiguration(displayColumns={"abbreviation","name"})
-public class Subsystem extends AbstractUtopiaPersistent implements java.io.Serializable {
+public class Subsystem extends AbstractUtopiaSoftDelete implements java.io.Serializable {
 
 	// Fields
 

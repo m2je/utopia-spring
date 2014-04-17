@@ -4,11 +4,11 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-import com.utopia.core.model.AbstractUtopiaPersistent;
+import com.utopia.core.model.AbstractUtopiaSoftDelete;
 
 @Entity
 @Table(name = "CM_BANK", uniqueConstraints = {})
-public  class Bank extends AbstractUtopiaPersistent implements java.io.Serializable {
+public  class Bank extends AbstractUtopiaSoftDelete implements java.io.Serializable {
 
 	/**
 	 * 

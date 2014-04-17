@@ -2,7 +2,6 @@ package com.utopia.core.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
@@ -13,7 +12,7 @@ import javax.persistence.UniqueConstraint;
 @Table(name = "CO_PORTAL", uniqueConstraints = {
 		@UniqueConstraint(columnNames = { "DOMAIN_NAME" }),
 		@UniqueConstraint(columnNames = { "NAME" }) })
-public  class Portal extends AbstractUtopiaPersistent implements java.io.Serializable {
+public  class Portal extends AbstractUtopiaSoftDelete implements java.io.Serializable {
 
 	// Fields
 

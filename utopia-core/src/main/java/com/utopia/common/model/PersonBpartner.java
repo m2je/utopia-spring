@@ -15,7 +15,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import com.utopia.core.constants.Constants;
-import com.utopia.core.model.AbstractUtopiaPersistent;
+import com.utopia.core.model.AbstractUtopiaSoftDelete;
 
 /**
  * 
@@ -23,7 +23,7 @@ import com.utopia.core.model.AbstractUtopiaPersistent;
  */
 @Entity
 @Table(name = "CM_PERSON_BPARTNER",  uniqueConstraints = {})
-public class PersonBpartner extends AbstractUtopiaPersistent implements java.io.Serializable {
+public class PersonBpartner extends AbstractUtopiaSoftDelete implements java.io.Serializable {
 
 	// Fields
 

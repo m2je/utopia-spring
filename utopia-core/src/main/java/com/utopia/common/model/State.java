@@ -7,7 +7,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.utopia.core.model.AbstractUtopiaPersistent;
+import com.utopia.core.model.AbstractUtopiaSoftDelete;
 
 /**
  * 
@@ -15,7 +15,7 @@ import com.utopia.core.model.AbstractUtopiaPersistent;
  */
 @Entity
 @Table(name = "CM_STATE",  uniqueConstraints = {})
-public  class State extends AbstractUtopiaPersistent implements java.io.Serializable {
+public  class State extends AbstractUtopiaSoftDelete implements java.io.Serializable {
 
 	// Fields
 
