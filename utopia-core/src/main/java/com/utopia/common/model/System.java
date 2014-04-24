@@ -13,6 +13,7 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 import com.utopia.core.model.AbstractUtopiaSoftDelete;
+import com.utopia.core.model.PortalSysAccss;
 import com.utopia.core.model.annotations.LookupConfiguration;
 
 /**
@@ -34,6 +35,7 @@ public  class System  extends AbstractUtopiaSoftDelete implements java.io.Serial
 	
 	private String name;
 	private Set<Subsystem> subsystems = new HashSet<Subsystem>(0);
+	private Set<PortalSysAccss> portalAccss = new HashSet<PortalSysAccss>(0);
 	private String icon;
 	private String abbreviation;
 	// Constructors
@@ -52,7 +54,7 @@ public  class System  extends AbstractUtopiaSoftDelete implements java.io.Serial
 		this.name = name;
 	}
 
-	@OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.LAZY, mappedBy = "system")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "system")
 	public Set<Subsystem> getSubsystems() {
 		return this.subsystems;
 	}
@@ -76,4 +78,16 @@ public  class System  extends AbstractUtopiaSoftDelete implements java.io.Serial
 	public void setAbbreviation(String abbreviation) {
 		this.abbreviation = abbreviation;
 	}
+
+	@OneToMany( fetch = FetchType.LAZY, mappedBy = "system")
+	public Set<PortalSysAccss> getPortalAccss() {
+		return portalAccss;
+	}
+
+
+	public void setPortalAccss(Set<PortalSysAccss> portalAccss) {
+		this.portalAccss = portalAccss;
+	}
+	
+	
 }

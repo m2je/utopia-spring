@@ -13,8 +13,14 @@
   <artifactId>utopia-security</artifactId>
   <packaging>jar</packaging>
   <version>${utopia-version}</version>
-  <name>utopia-core</name>
   
+  <dependencies>
+  	<dependency>
+  		<groupId>com.utopia</groupId>
+  		<artifactId>utopia-core</artifactId>
+  		<version>${utopia-version}</version>
+  	</dependency>
+  </dependencies>
 	
 
 </project>

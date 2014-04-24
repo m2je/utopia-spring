@@ -42,7 +42,7 @@ public abstract class AbstractAPIController {
     }
 	
 	protected String[] parseUsecaseName(String name){
-		if(FULL_USECASE_NAME_PATTERN.matches(name)){
+		if(name.matches(FULL_USECASE_NAME_PATTERN)){
 			try {
 				Matcher m= usecasePattern.matcher(name);
 				if(m.find()){

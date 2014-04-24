@@ -27,10 +27,10 @@ public class TestUser extends AbstractUtopiaTestCase{
 	@Test
 	@LookupConfiguration
 	public void test(){
-		entityManager.getCriteriaBuilder();
-		userDAO.findByUsername("", "");
 		try{
+			
 			UserCollectionResult result=restTemplate.getForEntity(serverURL+"/users", UserCollectionResult.class).getBody();
+			System.out.println(result);
 			}catch(Exception e){
 				e.printStackTrace();
 				throw e;

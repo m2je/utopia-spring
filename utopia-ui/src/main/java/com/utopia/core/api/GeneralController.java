@@ -21,7 +21,7 @@ public class GeneralController extends AbstractAPIController{
 	@ResponseBody
 	public  Usecase  usecases(@PathVariable Usecase usecase){
 		
-		return null;
+		return usecase;
 	}
 	
 	

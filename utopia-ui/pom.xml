@@ -11,9 +11,9 @@
   
   <groupId>com.utopia</groupId>
   <artifactId>utopia-ui</artifactId>
-  <packaging>jar</packaging>
+  <packaging>war</packaging>
   <version>${utopia-version}</version>
-  <name>utopia-core</name>
+
   
 	<dependencies>
 		<dependency>
@@ -27,5 +27,18 @@
 	        <artifactId>spring-webmvc</artifactId>
 	        <version>${spring-core-version}</version>
 	    </dependency>
+	    
+	    <dependency>
+	    	<groupId>com.utopia</groupId>
+	    	<artifactId>utopia-core</artifactId>
+	    	<version>${utopia-version}</version>
+	    </dependency>
+	    
+	    <dependency>
+	    	<groupId>com.utopia</groupId>
+	    	<artifactId>utopia-security</artifactId>
+	    	<version>${utopia-version}</version>
+	    </dependency>
+	    
     </dependencies>
 </project>

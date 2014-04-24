@@ -29,6 +29,7 @@ public class Subsystem extends AbstractUtopiaSoftDelete implements java.io.Seria
 	private String name;
 	private String iconPath;
 	private String abbreviation;
+	
 	// Constructors
 
 	/** default constructor */
@@ -71,4 +72,6 @@ public class Subsystem extends AbstractUtopiaSoftDelete implements java.io.Seria
 	public void setAbbreviation(String abbreviation) {
 		this.abbreviation = abbreviation;
 	}
+	
+		
 }

@@ -2,6 +2,7 @@ package com.utopia.core.usecase;
 
 import java.util.List;
 
+import com.utopia.core.model.Portal;
 import com.utopia.core.model.Usecase;
 import com.utopia.core.service.UtopiaService;
 
@@ -25,7 +26,7 @@ public interface UsecaseService extends UtopiaService {
 	 * @param usecaseName
 	 * @return
 	 */
-	public Usecase findUsecase(String usecaseName);
+	public Usecase findUsecase(String usecaseName,Portal portal);
 	/**
 	 * 
 	 * @return
