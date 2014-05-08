@@ -1,5 +1,6 @@
 package com.utopia.core.model;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -7,7 +8,7 @@ import java.util.Map;
 import com.utopia.core.lookup.DetailPersistentValueInfo;
 import com.utopia.core.lookup.LookupInfo;
 
-public interface UtopiaBasicPersistent {
+public interface UtopiaBasicPersistent extends Serializable{
 
 	/**
 	 * 

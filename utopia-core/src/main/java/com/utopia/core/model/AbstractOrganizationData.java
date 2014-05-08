@@ -8,7 +8,7 @@ import javax.persistence.MappedSuperclass;
 import com.utopia.common.model.Organization;
 
 @MappedSuperclass
-public class AbstractOrganizationData extends AbstractUtopiaSoftDelete implements OrganizationData {
+public abstract class AbstractOrganizationData extends AbstractUtopiaSoftDelete implements OrganizationData {
 
 	
 	/**
@@ -24,7 +24,7 @@ public class AbstractOrganizationData extends AbstractUtopiaSoftDelete implement
 	}
 
 	@Override
-	@ManyToOne(fetch=FetchType.EAGER)
+	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name = "CM_ORGANIZATION_ID", unique = false, nullable = false, insertable = true, updatable = true)
 	public Organization getOrganization() {
 		return organization;

@@ -14,8 +14,8 @@ public interface PortalSysAccssDAO extends JpaRepository<PortalSysAccss, Long>{
 	
 	@Cacheable(value="__portal_sys_accss",key="portalId")
 	@Query("SELECT Subsystem FROM  Subsystem Subsystem WHERE ( "
-			+ " Subsystem.id IN (SELECT PortalSysAccss.subsystem.id FROM  PortalSysAccss PortalSysAccss WHERE PortalSysAccss.portal.id=:poratlId AND PortalSysAccss.subsystem.deleted=FALSE ) "
-			+ " OR  Subsystem.id IN (SELECT subsystems.id FROM System System INNER JOIN System.subsystems subsystems INNER JOIN  System.portalAccss portalAccss  WHERE System.deleted=FALSE AND subsystems.deleted=FALSE AND portalAccss.portal.id=:portalId ) "
+			+ " Subsystem.id IN (SELECT PortalSysAccss.subsystem.id FROM  PortalSysAccss PortalSysAccss WHERE (PortalSysAccss.portal.id=:portalId OR :portalId=0) AND PortalSysAccss.subsystem.deleted=FALSE ) "
+			+ " OR  Subsystem.id IN (SELECT subsystems.id FROM System System INNER JOIN System.subsystems subsystems INNER JOIN  System.portalAccss portalAccss  WHERE System.deleted=FALSE AND subsystems.deleted=FALSE AND (portalAccss.portal.id=:portalId OR :portalId=0) ) "
 			+ " )"
 			)
 	public List<Subsystem> getAccessibleSubSystem(@Param("portalId") Long portalId);

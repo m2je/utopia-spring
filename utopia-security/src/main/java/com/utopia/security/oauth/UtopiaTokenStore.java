@@ -61,9 +61,7 @@ public class UtopiaTokenStore implements TokenStore {
 			OAuth2Authentication authentication) {
 		
 		UserAppToken ptoken=new UserAppToken();
-		User user=new User();
-		user.setId(getUserId(authentication));
-		ptoken.setUser(user);
+		ptoken.setUser(getUser(authentication));
 		ptoken.setApplication(getApplication(authentication));
 		ptoken.setToken(token.getValue());
 		ptoken.setRefreshToken(token.getRefreshToken().getValue());
@@ -74,8 +72,6 @@ public class UtopiaTokenStore implements TokenStore {
 		ptoken.setUpdated(currentDate);
 		Calendar validTo= Calendar.getInstance();
 		validTo.setTime(currentDate);
-		
-//		ptoken.setValidTo(validTo);
 		userAppTokenDAO.save(ptoken);
 	}	
 //********************************************************************************************************************************************
@@ -94,10 +90,9 @@ public class UtopiaTokenStore implements TokenStore {
 			OAuth2Authentication authentication) {
 		AppRefreshToken refToken=new AppRefreshToken();
 		refToken.setApplication( getApplication(authentication));
-		User user=new User();
-		user.setId(getUserId(authentication));
-		refToken.setUser(user);
+		refToken.setUser(getUser(authentication));
 		refToken.setRefreshToken(refreshToken.getValue());
+		refToken.setAuthentication(serializeAuthentication(authentication));
 		appRefreshTokenDAO.save(refToken);
 	}
 //********************************************************************************************************************************************
@@ -159,7 +154,11 @@ public class UtopiaTokenStore implements TokenStore {
 	}
 //********************************************************************************************************************************************
 	protected Long getUserId(OAuth2Authentication authentication){
-		return ((UtopiaAuthenticationInfo)authentication.getUserAuthentication()).getUser().getId();
+		return getUser(authentication).getId();
+	}
+//********************************************************************************************************************************************
+	protected User getUser(OAuth2Authentication authentication){
+		return ((UtopiaAuthenticationInfo)authentication.getUserAuthentication()).getUser();
 	}
 //********************************************************************************************************************************************
 	protected String getApplicationName(OAuth2Authentication authentication){

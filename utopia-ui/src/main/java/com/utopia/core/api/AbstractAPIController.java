@@ -8,6 +8,7 @@ import javax.annotation.Resource;
 
 import org.apache.log4j.Logger;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 
@@ -32,7 +33,7 @@ public abstract class AbstractAPIController {
 					if(parsedUsecase!=null){
 						super.setValue(service.findUsecase(parsedUsecase[0], parsedUsecase[1], parsedUsecase[2]));
 					}else{
-						
+						service.findUsecase(text, getCurrentUser().getPortal());
 					}
 				}
 				
@@ -56,7 +57,7 @@ public abstract class AbstractAPIController {
 		return null;
 	}
 	protected User getCurrentUser(){
-		UtopiaAuthenticationInfo info= (UtopiaAuthenticationInfo)SecurityContextHolder.getContext().getAuthentication();
+		UtopiaAuthenticationInfo info= (UtopiaAuthenticationInfo)((OAuth2Authentication)SecurityContextHolder.getContext().getAuthentication()).getUserAuthentication();
 		return info.getUser();
 	}
 }

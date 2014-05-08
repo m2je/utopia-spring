@@ -1,5 +1,6 @@
 package com.utopia.core.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -38,9 +39,10 @@ import com.utopia.core.lookup.LookupInfo;
 	)
 @Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
 
-public abstract class  AbstractBasicPersistent implements UtopiaBasicPersistent{
+public abstract class  AbstractBasicPersistent implements UtopiaBasicPersistent,Serializable{
 
-private static final Logger logger;
+	private static final long serialVersionUID = 5758087573780089720L;
+	private static final Logger logger;
 	
 	static {
 		logger = Logger.getLogger(AbstractBasicPersistent.class);
@@ -168,4 +170,6 @@ private static final Logger logger;
 				!((HibernateProxy)mappedProperty).getHibernateLazyInitializer().isUninitialized()));
 	}
 //************************************************************************************************
+	
+
 }

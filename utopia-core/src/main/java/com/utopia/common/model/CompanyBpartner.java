@@ -67,7 +67,7 @@ public  class CompanyBpartner extends AbstractUtopiaSoftDelete implements java.i
 		this.bpartner = bpartner;
 	}
 
-	@ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+	@ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
 	@JoinColumn(name = "PARENT_COMPANY", unique = false, nullable = true, insertable = true, updatable = true)
 	public CompanyBpartner getCompanyBpartner() {
 		return this.companyBpartner;
